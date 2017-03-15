@@ -1,0 +1,8 @@
+.DS_Store
+*.db
+*.log
+
+node_modules
+
+data
+out
