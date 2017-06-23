@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const yargs = require('yargs')
 const path = require('path')
 const FileWriter = require('./lib/output/files')

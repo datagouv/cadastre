@@ -1,11 +1,10 @@
 {
-  "name": "import-cadastre",
-  "version": "1.0.0",
-  "description": "Tools to import French cadastre",
+  "name": "edigeo2geojson",
+  "version": "0.1.0",
   "author": "Jérôme Desboeufs <jerome.desboeufs@data.gouv.fr>",
   "license": "MIT",
-  "scripts": {
-    "extract": "node cli extract"
+  "bin": {
+    "edigeo2geojson": "./cli.js"
   },
   "dependencies": {
     "@turf/inside": "^3.10.4",
