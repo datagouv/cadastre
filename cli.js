@@ -7,9 +7,9 @@ const { extractFromBundle } = require('./lib/extract')
 yargs
   .usage('$0 <cmd> [args]')
     .command('extract srcBundle outDest', 'extract bundle into destination', {}, function (argv) {
-      const writer = new FileWriter(path.resolve(__dirname, argv.outDest))
+      const writer = new FileWriter(path.resolve(process.cwd(), argv.outDest))
 
-      extractFromBundle(path.resolve(__dirname, argv.srcBundle), writer)
+      extractFromBundle(path.resolve(process.cwd(), argv.srcBundle), writer)
         .then(() => writer.finish())
         .catch(console.error)
         .then(() => console.log('Finished!'))
