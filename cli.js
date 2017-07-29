@@ -1,18 +1,32 @@
 #!/usr/bin/env node
-const yargs = require('yargs')
+const program = require('commander')
 const path = require('path')
+const ProgressBar = require('progress')
+const { version } = require('./package.json')
 const FileWriter = require('./lib/output/files')
 const { extractFromBundle } = require('./lib/extract')
 
-yargs
-  .usage('$0 <cmd> [args]')
-    .command('extract srcBundle outDest', 'extract bundle into destination', {}, function (argv) {
-      const writer = new FileWriter(path.resolve(process.cwd(), argv.outDest))
+program
+  .version(version)
+  .arguments('<srcBundle> <outDest>')
+  .action(function (srcBundle, outDest) {
+    const writer = new FileWriter(path.resolve(process.cwd(), outDest))
 
-      extractFromBundle(path.resolve(process.cwd(), argv.srcBundle), writer)
-        .then(() => writer.finish())
-        .catch(console.error)
-        .then(() => console.log('Finished!'))
-    })
-    .help()
-    .argv
+    const converter = extractFromBundle(path.resolve(process.cwd(), srcBundle), writer)
+    let bar
+
+    converter
+      .on('end', () => writer.finish())
+      .on('error', console.error)
+      .on('start', () => {
+        bar = new ProgressBar('  converting [:bar] :ratefiles/s :percent :etas', {
+          complete: '=',
+          incomplete: ' ',
+          width: 40,
+          total: converter.total
+        })
+      })
+      .on('file:converted', () => bar.tick())
+      .on('file:ignored', () => bar.tick())
+  })
+  .parse(process.argv)
