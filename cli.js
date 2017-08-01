@@ -8,11 +8,11 @@ const { extractFromBundle } = require('./lib/extract')
 
 program
   .version(version)
-  .arguments('<srcBundle> <outDest>')
-  .action(function (srcBundle, outDest) {
+  .arguments('<depCode> <srcBundle> <outDest>')
+  .action(function (depCode, srcBundle, outDest) {
     const writer = new FileWriter(path.resolve(process.cwd(), outDest))
 
-    const converter = extractFromBundle(path.resolve(process.cwd(), srcBundle), writer)
+    const converter = extractFromBundle(path.resolve(process.cwd(), srcBundle), writer, depCode)
     let bar
 
     converter
