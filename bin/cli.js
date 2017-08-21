@@ -1,15 +1,15 @@
 #!/usr/bin/env node
-const program = require('commander')
 const path = require('path')
+const program = require('commander')
 const ProgressBar = require('progress')
-const { version } = require('./package.json')
-const FileWriter = require('./lib/output/files')
-const { extractFromBundle } = require('./lib/extract')
+const { version } = require('../package.json')
+const FileWriter = require('../lib/output/files')
+const { extractFromBundle } = require('../lib/extract')
 
 program
   .version(version)
   .arguments('<depCode> <srcBundle> <outDest>')
-  .action(function (depCode, srcBundle, outDest) {
+  .action((depCode, srcBundle, outDest) => {
     const writer = new FileWriter(path.resolve(process.cwd(), outDest))
 
     const converter = extractFromBundle(path.resolve(process.cwd(), srcBundle), writer, depCode)
@@ -23,7 +23,7 @@ program
           complete: '=',
           incomplete: ' ',
           width: 40,
-          total: converter.total
+          total: converter.total,
         })
       })
       .on('file:converted', () => bar.tick())
