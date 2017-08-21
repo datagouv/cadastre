@@ -4,7 +4,7 @@
   "author": "Jérôme Desboeufs <jerome.desboeufs@data.gouv.fr>",
   "license": "MIT",
   "bin": {
-    "edigeo2geojson": "./cli.js"
+    "edigeo2geojson": "./bin/cli.js"
   },
   "dependencies": {
     "@turf/turf": "^4.5.2",
