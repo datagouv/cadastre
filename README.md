@@ -4,7 +4,7 @@ Script permettant d'extraire les géométries des fichiers EDIGéO, ainsi que la
 
 ## Prérequis
 
-* Node.js >= 6
+* Node.js >= 8
 
 ## Installation
 
