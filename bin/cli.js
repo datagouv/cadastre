@@ -14,16 +14,16 @@ const mkdirpAsync = promisify(mkdirp)
 
 program
   .version(version)
-  .arguments('<depCode> <src> <dest>')
-  .action(async (depCode, src, dest) => {
-    const depSrc = resolve(process.cwd(), src, `./dep${depCode}.zip`)
-    const depDest = resolve(process.cwd(), dest, `./dep${depCode}`)
+  .arguments('<codeDep> <src> <dest>')
+  .action(async (codeDep, src, dest) => {
+    const depSrc = resolve(process.cwd(), src, `./dep${codeDep}.zip`)
+    const depDest = resolve(process.cwd(), dest, `./dep${codeDep}`)
 
     // Prepare output
     await mkdirpAsync(depDest)
     const writer = new FileWriter(depDest)
 
-    const converter = extractFromBundle(depSrc, writer, depCode)
+    const converter = extractFromBundle(depSrc, writer, codeDep)
     let bar
 
     converter
@@ -31,12 +31,12 @@ program
       .on('error', console.error)
       .on('start', () => {
         bar = new ProgressBar({
-          schema: '  converting :depCode [:bar] :percent :etas',
+          schema: '  converting :codeDep [:bar] :percent :etas',
           total: converter.total,
         })
-        bar.update(0, { depCode })
+        bar.update(0, { codeDep })
       })
-      .on('file:converted', () => bar.tick(1, { depCode }))
-      .on('file:ignored', () => bar.tick(1, { depCode }))
+      .on('file:converted', () => bar.tick(1, { codeDep }))
+      .on('file:ignored', () => bar.tick(1, { codeDep }))
   })
   .parse(process.argv)
