@@ -21,27 +21,32 @@ program
 
     // Prepare output
     await mkdirpAsync(depDest)
-    const writer = new FileWriter(depDest)
 
-    const converter = extractDepartement({
-      codeDep,
-      path: depSrc,
-      onFeature: f => writer.writeFeature(f),
-    })
+    const writer = new FileWriter(depDest)
+    const extractor = extractDepartement(depSrc, codeDep)
 
     let bar
 
-    converter
+    extractor
       .on('end', () => writer.finish())
-      .on('error', console.error)
+      .on('error', boom)
       .on('start', () => {
         bar = new ProgressBar({
           schema: '  converting :codeDep [:bar] :percent :etas',
-          total: converter.total,
+          total: extractor.total,
         })
         bar.update(0, { codeDep })
       })
-      .on('file:converted', () => bar.tick(1, { codeDep }))
-      .on('file:ignored', () => bar.tick(1, { codeDep }))
+      .on('planche', ({ features }) => {
+        bar.tick(1, { codeDep })
+        if (features) {
+          features.forEach(f => writer.writeFeature(f))
+        }
+      })
   })
   .parse(process.argv)
+
+function boom(err) {
+  console.error(err)
+  process.exit(1)
+}
