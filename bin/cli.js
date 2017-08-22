@@ -8,7 +8,7 @@ const mkdirp = require('mkdirp')
 
 const { version } = require('../package.json')
 const FileWriter = require('../lib/output/files')
-const { extractFromBundle } = require('../lib/extract')
+const extractDepartement = require('../lib/extract/departement')
 
 const mkdirpAsync = promisify(mkdirp)
 
@@ -23,7 +23,12 @@ program
     await mkdirpAsync(depDest)
     const writer = new FileWriter(depDest)
 
-    const converter = extractFromBundle(depSrc, writer, codeDep)
+    const converter = extractDepartement({
+      codeDep,
+      path: depSrc,
+      onFeature: f => writer.writeFeature(f),
+    })
+
     let bar
 
     converter
