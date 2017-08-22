@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const path = require('path')
 const program = require('commander')
-const ProgressBar = require('progress')
+const ProgressBar = require('ascii-progress')
 const { version } = require('../package.json')
 const FileWriter = require('../lib/output/files')
 const { extractFromBundle } = require('../lib/extract')
@@ -19,10 +19,8 @@ program
       .on('end', () => writer.finish())
       .on('error', console.error)
       .on('start', () => {
-        bar = new ProgressBar('  converting [:bar] :ratefiles/s :percent :etas', {
-          complete: '=',
-          incomplete: ' ',
-          width: 40,
+        bar = new ProgressBar({
+          schema: '  converting [:bar] :percent :etas',
           total: converter.total,
         })
       })
