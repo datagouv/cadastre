@@ -16,10 +16,12 @@ npm install edigeo2geojson -g
 
 ## Utilisation
 
-### Extraction des données pour département dans des fichiers GeoJSON
+### Extraction des données
 
 ```bash
-edigeo2geojson data/dep75.zip out/dep75
+edigeo2geojson edigeo_files_dir target_geojson_files_dir
 ```
 
-NB : Le dossier de destination doit être créé au préalable.
+## Licence
+
+MIT
