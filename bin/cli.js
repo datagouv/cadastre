@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 const { cpus } = require('os')
 const { readdir } = require('fs')
-const { resolve } = require('path')
 const { promisify } = require('util')
 
 const program = require('commander')
@@ -19,7 +18,8 @@ program
   .arguments('<srcDir> <destDir>')
   .action(async (srcDir, destDir) => {
     const files = await readdirAsync(srcDir)
-    const codeDeps = files
+
+    const departementsFound = files
       .map(f => {
         const res = f.match(/^dep([0-9A-Z]{2,3}).zip$/)
         if (res) return res[1]
@@ -27,10 +27,13 @@ program
       })
       .filter(res => Boolean(res))
 
+    const queued = [...departementsFound]
+    const finished = []
+
     const workers = []
 
     function eventuallyFinish() {
-      if (workers.filter(w => !w.ready).length === 0) {
+      if (finished.length === departementsFound.length) {
         console.log('Finished')
         process.exit(0)
       }
@@ -39,9 +42,12 @@ program
     for (let i = 0; i < numWorkers; i++) {
       const worker = createWorker(srcDir, destDir)
       workers.push(worker)
+      worker.on('end', ({ codeDep }) => {
+        finished.push(codeDep)
+      })
       worker.on('ready', () => {
-        if (codeDeps.length === 0) return eventuallyFinish()
-        const codeDep = codeDeps.shift()
+        if (queued.length === 0) return eventuallyFinish()
+        const codeDep = queued.shift()
         worker.extractDepartement(codeDep)
       })
     }
