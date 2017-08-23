@@ -1,50 +1,63 @@
 #!/usr/bin/env node
-const { resolve } = require('path')
-const { promisify } = require('util')
+const { cpus } = require('os')
 
 const program = require('commander')
 const ProgressBar = require('ascii-progress')
-const mkdirp = require('mkdirp')
 
 const { version } = require('../package.json')
-const FileWriter = require('../lib/output/files')
-const extractDepartement = require('../lib/extract/departement')
+const Worker = require('../lib/worker/wrapper')
 
-const mkdirpAsync = promisify(mkdirp)
+const numCPUs = cpus().length
+const numWorkers = numCPUs
 
 program
   .version(version)
-  .arguments('<codeDep> <src> <dest>')
-  .action(async (codeDep, src, dest) => {
-    const depSrc = resolve(process.cwd(), src, `./dep${codeDep}.zip`)
-    const depDest = resolve(process.cwd(), dest, `./dep${codeDep}`)
+  .arguments('<srcDir> <destDir>')
+  .action((srcDir, destDir) => {
+    const codeDeps = ['90', '89', '54', '92']
+    const workers = []
 
-    // Prepare output
-    await mkdirpAsync(depDest)
+    function eventuallyFinish() {
+      if (workers.filter(w => !w.ready).length === 0) {
+        console.log('Finished')
+        process.exit(0)
+      }
+    }
 
-    const writer = new FileWriter(depDest)
-    const extractor = extractDepartement(depSrc, codeDep)
-
-    let bar
-
-    extractor
-      .on('end', () => writer.finish())
-      .on('error', boom)
-      .on('start', () => {
-        bar = new ProgressBar({
-          schema: '  converting :codeDep [:bar] :percent :etas',
-          total: extractor.total,
-        })
-        bar.update(0, { codeDep })
+    for (let i = 0; i < numWorkers; i++) {
+      const worker = createWorker(srcDir, destDir)
+      workers.push(worker)
+      worker.on('ready', () => {
+        if (codeDeps.length === 0) return eventuallyFinish()
+        const codeDep = codeDeps.shift()
+        worker.extractDepartement(codeDep)
       })
-      .on('planche', ({ features }) => {
-        bar.tick(1, { codeDep })
-        if (features) {
-          features.forEach(f => writer.writeFeature(f))
-        }
-      })
+    }
   })
   .parse(process.argv)
+
+function createWorker(srcDir, destDir) {
+  const worker = new Worker(srcDir, destDir)
+
+  let bar
+
+  worker
+    .on('start', ({ codeDep, total }) => {
+      bar = new ProgressBar({
+        schema: `  converting ${codeDep} [:bar] :percent :elapseds/:etas`,
+        total,
+      })
+    })
+    .on('planche', () => {
+      bar.tick()
+    })
+    .on('end', () => {
+      bar.clear()
+    })
+    .on('error', boom)
+
+  return worker
+}
 
 function boom(err) {
   console.error(err)
