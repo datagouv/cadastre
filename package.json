@@ -1,6 +1,6 @@
 {
   "name": "edigeo2geojson",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Jérôme Desboeufs <jerome.desboeufs@data.gouv.fr>",
   "license": "MIT",
   "bin": {
