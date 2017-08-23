@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 const { cpus } = require('os')
+const { readdir } = require('fs')
+const { resolve } = require('path')
+const { promisify } = require('util')
 
 const program = require('commander')
 const ProgressBar = require('ascii-progress')
@@ -7,14 +10,23 @@ const ProgressBar = require('ascii-progress')
 const { version } = require('../package.json')
 const Worker = require('../lib/worker/wrapper')
 
+const readdirAsync = promisify(readdir)
 const numCPUs = cpus().length
 const numWorkers = numCPUs
 
 program
   .version(version)
   .arguments('<srcDir> <destDir>')
-  .action((srcDir, destDir) => {
-    const codeDeps = ['90', '89', '54', '92']
+  .action(async (srcDir, destDir) => {
+    const files = await readdirAsync(srcDir)
+    const codeDeps = files
+      .map(f => {
+        const res = f.match(/^dep([0-9A-Z]{2,3}).zip$/)
+        if (res) return res[1]
+        return res ? res[1] : null
+      })
+      .filter(res => Boolean(res))
+
     const workers = []
 
     function eventuallyFinish() {
