@@ -10,7 +10,7 @@
     "lint": "xo"
   },
   "dependencies": {
-    "@turf/turf": "^4.5.2",
+    "@turf/turf": "^4.6.1",
     "JSONStream": "^1.3.1",
     "ascii-progress": "^1.0.5",
     "bluebird": "^3.4.7",
