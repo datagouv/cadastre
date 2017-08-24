@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const { resolve } = require('path')
 const { cpus } = require('os')
 const { readdir } = require('fs')
 const { promisify } = require('util')
@@ -17,6 +18,9 @@ program
   .version(version)
   .arguments('<srcDir> <destDir>')
   .action(async (srcDir, destDir) => {
+    srcDir = resolve(srcDir)
+    destDir = resolve(destDir)
+
     const files = await readdirAsync(srcDir)
 
     const departementsFound = files
