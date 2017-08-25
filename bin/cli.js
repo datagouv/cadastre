@@ -12,13 +12,13 @@ const Worker = require('../lib/worker/wrapper')
 
 const readdirAsync = promisify(readdir)
 const numCPUs = cpus().length
-const numWorkers = numCPUs
 
 program
   .version(version)
   .arguments('<srcDir> <destDir>')
   .option('--write-raw', 'Write raw features')
-  .action(async (srcDir, destDir, { writeRaw }) => {
+  .options('--num-workers <n>', 'Number of workers', parseInt, numCPUs)
+  .action(async (srcDir, destDir, { writeRaw, numWorkers }) => {
     srcDir = resolve(srcDir)
     destDir = resolve(destDir)
 
