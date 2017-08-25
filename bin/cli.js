@@ -8,7 +8,6 @@ const program = require('commander')
 const ProgressBar = require('ascii-progress')
 
 const { version } = require('../package.json')
-const Worker = require('../lib/worker/wrapper')
 
 const readdirAsync = promisify(readdir)
 const numCPUs = cpus().length
@@ -21,6 +20,10 @@ program
   .action(async (srcDir, destDir, { writeRaw, numWorkers }) => {
     srcDir = resolve(srcDir)
     destDir = resolve(destDir)
+
+    const Worker = numWorkers > 1 ?
+      require('../lib/worker/wrapper') :
+      require('../lib/worker/direct')
 
     const files = await readdirAsync(srcDir)
 
@@ -45,7 +48,7 @@ program
     }
 
     for (let i = 0; i < numWorkers; i++) {
-      const worker = createWorker(srcDir, destDir, writeRaw)
+      const worker = createWorker(srcDir, destDir, writeRaw, Worker)
       workers.push(worker)
       worker.on('end', ({ codeDep }) => {
         finished.push(codeDep)
@@ -59,7 +62,7 @@ program
   })
   .parse(process.argv)
 
-function createWorker(srcDir, destDir, writeRaw) {
+function createWorker(srcDir, destDir, writeRaw, Worker) {
   const worker = new Worker(srcDir, destDir, writeRaw)
 
   let bar
