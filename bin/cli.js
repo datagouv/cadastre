@@ -17,7 +17,8 @@ const numWorkers = numCPUs
 program
   .version(version)
   .arguments('<srcDir> <destDir>')
-  .action(async (srcDir, destDir) => {
+  .option('--write-raw', 'Write raw features')
+  .action(async (srcDir, destDir, { writeRaw }) => {
     srcDir = resolve(srcDir)
     destDir = resolve(destDir)
 
@@ -44,7 +45,7 @@ program
     }
 
     for (let i = 0; i < numWorkers; i++) {
-      const worker = createWorker(srcDir, destDir)
+      const worker = createWorker(srcDir, destDir, writeRaw)
       workers.push(worker)
       worker.on('end', ({ codeDep }) => {
         finished.push(codeDep)
@@ -58,8 +59,8 @@ program
   })
   .parse(process.argv)
 
-function createWorker(srcDir, destDir) {
-  const worker = new Worker(srcDir, destDir)
+function createWorker(srcDir, destDir, writeRaw) {
+  const worker = new Worker(srcDir, destDir, writeRaw)
 
   let bar
 
