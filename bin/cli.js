@@ -70,7 +70,7 @@ function createWorker(srcDir, destDir) {
         total,
       })
     })
-    .on('planche', () => {
+    .on('feuille', () => {
       bar.tick()
     })
     .on('end', () => {
