@@ -17,7 +17,7 @@ program
   .version(version)
   .arguments('<srcDir> <destDir>')
   .option('--write-raw', 'Write raw features')
-  .options('--num-workers <n>', 'Number of workers', parseInt, numCPUs)
+  .option('--num-workers <n>', 'Number of workers', parseInt, numCPUs)
   .action(async (srcDir, destDir, { writeRaw, numWorkers }) => {
     srcDir = resolve(srcDir)
     destDir = resolve(destDir)
