@@ -47,7 +47,8 @@
         {
           "max": 2
         }
-      ]
+      ],
+      "capitalized-comment": "off"
     }
   },
   "engines": {
