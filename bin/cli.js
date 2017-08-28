@@ -11,19 +11,19 @@ program
   .version(version)
 
 program
-  .command('prepare <srcDir> <destDir>')
+  .command('prepare [workDir]')
   .description('prepare EDIGÉO files')
-  .action((srcDir, destDir) => {
-    require('../lib/commands/prepare')(srcDir, destDir).catch(boom)
+  .action(workDir => {
+    require('../lib/commands/prepare')(workDir).catch(boom)
   })
 
 program
-  .command('extract <srcDir> <destDir>')
+  .command('extract [workDir]')
   .description('extract features from EDIGÉO to GeoJSON')
   .option('--write-raw', 'Write raw features')
   .option('--num-workers <n>', 'Number of workers', parseInt, numCPUs)
-  .action((srcDir, destDir, options) => {
-    require('../lib/commands/extract')(srcDir, destDir, options).catch(boom)
+  .action((workdir, options) => {
+    require('../lib/commands/extract')(workdir, options).catch(boom)
   })
 
 program
