@@ -4,7 +4,5 @@
 
 node_modules
 
-sources
-workdir
-data
-out
+.tmp
+dist

@@ -11,10 +11,10 @@ program
   .version(version)
 
 program
-  .command('decompress <srcDir> <destDir>')
-  .description('decompress DGFiP departements bundles')
+  .command('prepare <srcDir> <destDir>')
+  .description('prepare EDIGÉO files')
   .action((srcDir, destDir) => {
-    require('../lib/commands/decompress')(srcDir, destDir).catch(boom)
+    require('../lib/commands/prepare')(srcDir, destDir).catch(boom)
   })
 
 program
