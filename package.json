@@ -1,7 +1,15 @@
 {
-  "name": "edigeo2geojson",
+  "name": "@etalab/cadastre",
   "version": "0.4.3",
   "author": "Jérôme Desboeufs <jerome.desboeufs@data.gouv.fr>",
+  "homepage": "https://github.com/etalab/cadastre",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/etalab/cadastre.git"
+  },
+  "bugs": {
+    "url": "https://github.com/etalab/cadastre/issues"
+  },
   "license": "MIT",
   "bin": {
     "edigeo2geojson": "./bin/cli.js"
