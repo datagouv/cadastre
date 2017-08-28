@@ -23,7 +23,8 @@
     "mkdirp": "^0.5.1",
     "moment": "^2.18.1",
     "rimraf": "^2.6.1",
-    "split": "^1.0.0"
+    "split": "^1.0.0",
+    "worker-farm": "^1.5.0"
   },
   "devDependencies": {
     "xo": "^0.18.2"
