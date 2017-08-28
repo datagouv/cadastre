@@ -1,31 +1,15 @@
 #!/usr/bin/env node
-const { resolve } = require('path')
 const { cpus } = require('os')
-const { readdir } = require('fs')
-const { promisify } = require('util')
 
 const program = require('commander')
-const ProgressBar = require('ascii-progress')
 
 const { version } = require('../package.json')
 
-const readdirAsync = promisify(readdir)
+
 const numCPUs = cpus().length
 
 program
   .version(version)
-  .arguments('<srcDir> <destDir>')
-  .option('--write-raw', 'Write raw features')
-  .option('--num-workers <n>', 'Number of workers', parseInt, numCPUs)
-  .action(async (srcDir, destDir, { writeRaw, numWorkers }) => {
-    srcDir = resolve(srcDir)
-    destDir = resolve(destDir)
-
-    const Worker = numWorkers > 1 ?
-      require('../lib/worker/wrapper') :
-      require('../lib/worker/direct')
-
-    const files = await readdirAsync(srcDir)
 
     const departementsFound = files
       .map(f => {
@@ -60,32 +44,15 @@ program
       })
     }
   })
+
+program
+  .command('extract <srcDir> <destDir>')
+  .description('extract features from EDIGÉO to GeoJSON')
+  .option('--write-raw', 'Write raw features')
+  .option('--num-workers <n>', 'Number of workers', parseInt, numCPUs)
+  .action((srcDir, destDir, options) => {
+    require('../lib/commands/extract')(srcDir, destDir, options)
+  })
+
+program
   .parse(process.argv)
-
-function createWorker(srcDir, destDir, writeRaw, Worker) {
-  const worker = new Worker(srcDir, destDir, writeRaw)
-
-  let bar
-
-  worker
-    .on('start', ({ codeDep, total }) => {
-      bar = new ProgressBar({
-        schema: `  converting ${codeDep} [:bar] :percent :elapseds/:etas`,
-        total,
-      })
-    })
-    .on('feuille', () => {
-      bar.tick()
-    })
-    .on('end', () => {
-      bar.clear()
-    })
-    .on('error', boom)
-
-  return worker
-}
-
-function boom(err) {
-  console.error(err)
-  process.exit(1)
-}
