@@ -35,6 +35,7 @@
     "moment": "^2.18.1",
     "rimraf": "^2.6.1",
     "split": "^1.0.0",
+    "update-notifier": "^2.2.0",
     "worker-farm": "^1.5.0"
   },
   "devDependencies": {

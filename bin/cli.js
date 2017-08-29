@@ -1,11 +1,14 @@
 #!/usr/bin/env node
 
 const program = require('commander')
+const updateNotifier = require('update-notifier')
 
-const { version } = require('../package.json')
+const pkg = require('../package.json')
+
+updateNotifier({ pkg }).notify()
 
 program
-  .version(version)
+  .version(pkg.version)
 
 program
   .command('prepare <archivesDir> <workDir>')
