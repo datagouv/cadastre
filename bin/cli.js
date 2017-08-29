@@ -8,14 +8,14 @@ program
   .version(version)
 
 program
-  .command('prepare [workDir]')
+  .command('prepare <archivesDir> <workDir>')
   .description('prepare EDIGÉO files')
-  .action(workDir => {
-    require('../lib/commands/prepare')(workDir).catch(boom)
+  .action((archivesDir, workDir) => {
+    require('../lib/commands/prepare')(archivesDir, workDir).catch(boom)
   })
 
 program
-  .command('extract [workDir]')
+  .command('extract <workDir>')
   .description('extract features from EDIGÉO to GeoJSON')
   .option('--write-raw', 'Write raw features')
   .action((workdir, options) => {
@@ -23,7 +23,7 @@ program
   })
 
 program
-  .command('merge [workDir]')
+  .command('merge <workDir>')
   .description('merge communes into departements')
   .action(workdir => {
     require('../lib/commands/merge')(workdir).catch(boom)
