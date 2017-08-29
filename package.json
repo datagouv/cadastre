@@ -1,11 +1,11 @@
 {
   "name": "@etalab/cadastre",
-  "version": "0.4.3",
+  "version": "0.5.0",
   "author": "Jérôme Desboeufs <jerome.desboeufs@data.gouv.fr>",
   "homepage": "https://github.com/etalab/cadastre",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/etalab/cadastre.git"
+    "type": "git",
+    "url": "https://github.com/etalab/cadastre.git"
   },
   "bugs": {
     "url": "https://github.com/etalab/cadastre/issues"
