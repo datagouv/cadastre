@@ -1,6 +1,9 @@
 {
   "name": "@etalab/cadastre",
   "version": "0.5.0",
+  "publishConfig": {
+	  "access": "public"
+  },
   "author": "Jérôme Desboeufs <jerome.desboeufs@data.gouv.fr>",
   "homepage": "https://github.com/etalab/cadastre",
   "repository": {
