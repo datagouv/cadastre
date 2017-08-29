@@ -2,17 +2,17 @@
 
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
-Scripts permettant de produire les données cadastre à partir des fichiers EDIGÉO mis à disposition par la DGFiP
+Scripts permettant de produire les données cadastre à partir des fichiers EDIGÉO mis à disposition par la DGFiP.
 
 ## Prérequis
 
 * [Node.js](https://nodejs.org) >= 8
 
 ⚠️ L'installation de Node.js via `apt` (Ubuntu, Debian) ne permet pas immédiatement d'installer des modules `npm` globaux.
-Pour éviter des problèmes de permissions, il est recommandé de suivre [ces instruction](https://docs.npmjs.com/getting-started/fixing-npm-permissions#option-2-change-npms-default-directory-to-another-directory).
+Pour éviter des problèmes de permissions, il est recommandé de suivre [ces instructions](https://docs.npmjs.com/getting-started/fixing-npm-permissions#option-2-change-npms-default-directory-to-another-directory).
 
 * Pour France entière : un CPU avec au moins 8 coeurs, ou __beaucoup__ de patience
-* Pour France entière : au moins 160 Go d'espace disponible (50 pour les fichiers sources, 50 pour les fichiers de travail, 30 pour les fichiers départementaux résultants, 30 pour les fichiers communaux résultats)
+* Pour France entière : au moins 160 Go d'espace disponible (50 pour les fichiers sources, 50 pour l'espace de travail, 30 pour les fichiers départementaux, 30 pour les fichiers communaux)
 
 ## Installation
 
@@ -20,19 +20,19 @@ Pour éviter des problèmes de permissions, il est recommandé de suivre [ces in
 npm install @etalab/cadastre -g
 ```
 
-Ce module a de nombreuses dépendances, dont [GDAL](www.gdal.org). Son installation peut prendre plusieurs minutes. Si vous êtes pressé, utilisez [yarn](https://yarnpkg.com/lang/en/docs/install/).
+Ce module installe de nombreuses dépendances, dont [GDAL](www.gdal.org). Son installation peut prendre plusieurs minutes. Si vous êtes pressé, utilisez [yarn](https://yarnpkg.com/lang/en/docs/install/).
 
-## Téléchargement des archives EDIGÉO
+## Téléchargement des fichiers sources EDIGÉO
 
 _À venir_
 
-## Utilisation
+## Production des fichiers
 
 Actuellement la production des fichiers se déroule en 3 étapes, via 3 commandes.
 
 ### Préparation des fichiers EDIGÉO
 
-Tout d'abord la commande `prepare` explore le dossier contenant les archives départementales ÉDIGÉO, le décompresse dans le dossier de travail tout en organisant les fichiers résultats par départements et par communes.
+Tout d'abord la commande `prepare` explore le dossier contenant les archives départementales EDIGÉO, les décompresse dans le dossier de travail tout en organisant les archives correspondant aux feuilles cadastrales par départements et par communes.
 
 Pour France entière l'opération ne prend que quelques minutes sur une machine moyenne.
 
