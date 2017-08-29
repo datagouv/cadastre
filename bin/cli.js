@@ -27,6 +27,13 @@ program
   })
 
 program
+  .command('merge [workDir]')
+  .description('merge communes into departements')
+  .action(workdir => {
+    require('../lib/commands/merge')(workdir).catch(boom)
+  })
+
+program
   .parse(process.argv)
 
 function boom(err) {
