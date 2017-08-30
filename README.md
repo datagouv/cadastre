@@ -62,7 +62,7 @@ cadastre-builder extract cadastre/
 
 La commande `merge` permet d'obtenir des fichiers GeoJSON départementaux à partir des fichiers communaux.
 
-L'opération France entière dure quelques minutes.
+L'opération France entière dure plus d'une heure.
 
 ```
 cadastre-builder merge cadastre/
