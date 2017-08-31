@@ -20,7 +20,7 @@ program
 program
   .command('extract <workDir>')
   .description('extract features from EDIGÉO to GeoJSON')
-  .option('--write-raw', 'Write raw features')
+  .option('--raw', 'Write raw features')
   .action((workdir, options) => {
     require('../lib/commands/extract')(workdir, options).catch(boom)
   })
