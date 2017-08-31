@@ -56,6 +56,9 @@ Pour France entière, l'opération prend environ __140 heures__ par coeur de CPU
 
 ```bash
 cadastre-builder extract cadastre/
+
+# Mode données brutes
+cadastre-builder extract --raw cadastre/
 ```
 
 ### Production des fichiers GeoJSON départementaux
