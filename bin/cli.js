@@ -21,8 +21,9 @@ program
   .command('extract <workDir>')
   .description('extract features from EDIGÉO to GeoJSON')
   .option('--raw', 'Write raw features')
-  .action((workdir, options) => {
-    require('../lib/commands/extract')(workdir, options).catch(boom)
+  .option('--layers <layers>', 'select layers to extract (default: all)', val => val.split(','))
+  .action((workdir, { raw, layers }) => {
+    require('../lib/commands/extract')(workdir, { raw, layers }).catch(boom)
   })
 
 program
