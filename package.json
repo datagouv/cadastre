@@ -18,7 +18,8 @@
     "cadastre-builder": "./bin/cli.js"
   },
   "scripts": {
-    "lint": "xo"
+    "lint": "xo",
+    "test": "ava"
   },
   "dependencies": {
     "@turf/turf": "^4.6.1",
@@ -40,6 +41,7 @@
     "worker-farm": "^1.5.0"
   },
   "devDependencies": {
+    "ava": "^0.22.0",
     "xo": "^0.18.2"
   },
   "xo": {
