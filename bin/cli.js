@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const { resolve } = require('path')
 const program = require('commander')
 const updateNotifier = require('update-notifier')
 
@@ -14,6 +15,11 @@ program
   .command('prepare <archivesDir> <workDir>')
   .description('prepare EDIGÉO files')
   .action((archivesDir, workDir) => {
+    if (!workDir) throw new Error('workDir is required')
+    workDir = resolve(workDir)
+    if (!archivesDir) throw new Error('archivesDir is required')
+    archivesDir = resolve(archivesDir)
+
     require('../lib/commands/prepare')(archivesDir, workDir).catch(boom)
   })
 
@@ -22,15 +28,21 @@ program
   .description('extract features from EDIGÉO to GeoJSON')
   .option('--raw', 'Write raw features')
   .option('--layers <layers>', 'select layers to extract (default: all)', val => val.split(','))
-  .action((workdir, { raw, layers }) => {
-    require('../lib/commands/extract')(workdir, { raw, layers }).catch(boom)
+  .action((workDir, { raw, layers }) => {
+    if (!workDir) throw new Error('workDir is required')
+    workDir = resolve(workDir)
+
+    require('../lib/commands/extract')(workDir, { raw, layers }).catch(boom)
   })
 
 program
   .command('merge <workDir>')
   .description('merge communes into departements')
-  .action(workdir => {
-    require('../lib/commands/merge')(workdir).catch(boom)
+  .action(workDir => {
+    if (!workDir) throw new Error('workDir is required')
+    workDir = resolve(workDir)
+
+    require('../lib/commands/merge')(workDir).catch(boom)
   })
 
 program
