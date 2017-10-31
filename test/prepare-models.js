@@ -19,4 +19,7 @@ test('prepareParcelle', t => {
   t.is(prepareParcelle({
     codeDep: '01', geometry: {}, properties: {IDU: '1230000Z0650'}
   }).properties.numero, '650')
+  t.throws(() => prepareParcelle({
+    codeDep: '01', geometry: {}, properties: {IDU: null}
+  }))
 })
