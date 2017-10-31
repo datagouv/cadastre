@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-const { resolve } = require('path')
+const {resolve} = require('path')
 const program = require('commander')
 const updateNotifier = require('update-notifier')
 
 const pkg = require('../package.json')
 
-updateNotifier({ pkg }).notify()
+updateNotifier({pkg}).notify()
 
 program
   .version(pkg.version)
@@ -28,11 +28,11 @@ program
   .description('extract features from EDIGÉO to GeoJSON')
   .option('--raw', 'Write raw features')
   .option('--layers <layers>', 'select layers to extract (default: all)', val => val.split(','))
-  .action((workDir, { raw, layers }) => {
+  .action((workDir, {raw, layers}) => {
     if (!workDir) throw new Error('workDir is required')
     workDir = resolve(workDir)
 
-    require('../lib/commands/extract')(workDir, { raw, layers }).catch(boom)
+    require('../lib/commands/extract')(workDir, {raw, layers}).catch(boom)
   })
 
 program

@@ -48,23 +48,8 @@
     "space": 2,
     "semicolon": false,
     "rules": {
-      "comma-dangle": [
-        "error",
-        "always-multiline"
-      ],
-      "curly": "off",
-      "object-curly-spacing": [
-        "error",
-        "always"
-      ],
-      "padded-blocks": "off",
-      "no-multiple-empty-lines": [
-        "error",
-        {
-          "max": 2
-        }
-      ],
-      "capitalized-comment": "off"
+      "no-use-extend-native/no-use-extend-native": "off",
+      "curly": "off"
     }
   },
   "engines": {
