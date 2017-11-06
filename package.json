@@ -38,7 +38,8 @@
     "rimraf": "^2.6.1",
     "split": "^1.0.0",
     "update-notifier": "^2.2.0",
-    "worker-farm": "^1.5.0"
+    "worker-farm": "^1.5.0",
+    "yazl": "^2.4.3"
   },
   "devDependencies": {
     "ava": "^0.22.0",
