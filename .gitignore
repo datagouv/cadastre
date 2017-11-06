@@ -2,8 +2,8 @@
 *.db
 *.log
 
-node_modules
+/node_modules
 
 .tmp
-dist
-data
+/dist*
+/data*
