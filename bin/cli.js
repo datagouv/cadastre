@@ -12,15 +12,16 @@ program
   .version(pkg.version)
 
 program
-  .command('prepare <archivesDir> <workDir>')
-  .description('prepare EDIGÉO files')
-  .action((archivesDir, workDir) => {
+  .command('import-pci <archivesDir> <workDir>')
+  .description('Import PCI archives in PCI tree')
+  .option('--dxf', 'DXF mode')
+  .action((archivesDir, workDir, {dxf}) => {
     if (!workDir) throw new Error('workDir is required')
     workDir = resolve(workDir)
     if (!archivesDir) throw new Error('archivesDir is required')
     archivesDir = resolve(archivesDir)
 
-    require('../lib/commands/prepare')(archivesDir, workDir).catch(boom)
+    require('../lib/commands/import-pci')(archivesDir, workDir, dxf).catch(boom)
   })
 
 program
