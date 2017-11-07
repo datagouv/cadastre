@@ -37,6 +37,18 @@ program
   })
 
 program
+  .command('extract-ems <archivePath> <workDir>')
+  .description('Extraction des données cadastrales Ref 2000 de l\'EMS')
+  .action((archivePath, workDir) => {
+    if (!archivePath) throw new Error('archivePath is required')
+    archivePath = resolve(archivePath)
+    if (!workDir) throw new Error('workDir is required')
+    workDir = resolve(workDir)
+
+    require('../lib/commands/extract-ems')(archivePath, workDir).catch(boom)
+  })
+
+program
   .command('merge <workDir>')
   .description('merge communes into departements')
   .action(workDir => {
