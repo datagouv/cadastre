@@ -12,7 +12,7 @@ Scripts permettant de préparer les données cadastrales diffusées par Etalab.
 ⚠️ L'installation de Node.js via `apt` (Ubuntu, Debian) ne permet pas immédiatement d'installer des modules `npm` globaux.
 Pour éviter des problèmes de permissions, il est recommandé de suivre [ces instructions](https://docs.npmjs.com/getting-started/fixing-npm-permissions#option-2-change-npms-default-directory-to-another-directory).
 
-* Pour France entière : un CPU avec au moins 8 coeurs, ou __beaucoup__ de patience
+* Pour France entière : un CPU avec au moins 4 coeurs, ou __beaucoup__ de patience
 * Pour France entière : au moins 160 Go d'espace disponible (50 pour les fichiers sources, 50 pour l'espace de travail, 30 pour les fichiers départementaux, 30 pour les fichiers communaux)
 
 ## Installation
@@ -63,7 +63,8 @@ Les archives correspondant aux feuilles cadastrales, sous la forme `XXXX-XXX-XX-
 
 Un fichier GeoJSON est produit pour chaque couche et pour chaque commune.
 
-Pour France entière, l'opération prend environ __140 heures__ par coeur de CPU moderne disponible. Sur une machine classique il n'est pas envisageable de lancer l'opération d'un coup. Néanmoins le script gère efficacement la présence de multiples coeurs. Sur une instance Cloud de 32 coeurs louée à l'heure, le temps de traitement est inférieure à 5 heures, pour quelques euros.
+Pour France entière, l'opération prend environ __40 heures__ par coeur de CPU moderne disponible. Néanmoins le script gère efficacement la présence de multiples coeurs.
+Sur une machine dédiée avec 4 coeurs (8 threads) le traitement prend environ 10 heures.
 
 ```bash
 cadastre-builder extract-pci dist/
