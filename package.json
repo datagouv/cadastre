@@ -22,6 +22,7 @@
     "test": "ava"
   },
   "dependencies": {
+    "@etalab/edigeo-parser": "^0.2.0",
     "@turf/turf": "^4.6.1",
     "JSONStream": "^1.3.1",
     "ascii-progress": "^1.0.5",
@@ -29,14 +30,12 @@
     "commander": "^2.11.0",
     "debug": "^2.6.1",
     "decompress": "^4.0.0",
-    "gdal": "^0.9.6",
     "glob": "^7.1.2",
     "lodash": "^4.17.4",
     "mississippi": "^1.3.0",
     "mkdirp": "^0.5.1",
     "moment": "^2.18.1",
     "rimraf": "^2.6.1",
-    "split": "^1.0.0",
     "update-notifier": "^2.2.0",
     "worker-farm": "^1.5.0",
     "yazl": "^2.4.3"
