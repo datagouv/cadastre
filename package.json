@@ -28,7 +28,7 @@
     "ascii-progress": "^1.0.5",
     "bluebird": "^3.4.7",
     "commander": "^2.11.0",
-    "debug": "^2.6.1",
+    "debug": "^3.1.0",
     "decompress": "^4.0.0",
     "glob": "^7.1.2",
     "lodash": "^4.17.4",
@@ -41,7 +41,7 @@
     "yazl": "^2.4.3"
   },
   "devDependencies": {
-    "ava": "^0.22.0",
+    "ava": "^0.25.0",
     "xo": "^0.18.2"
   },
   "xo": {
