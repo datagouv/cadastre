@@ -44,9 +44,9 @@
   dependencies:
     arrify "^1.0.1"
 
-"@etalab/edigeo-parser@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@etalab/edigeo-parser/-/edigeo-parser-0.3.0.tgz#44003b02f2efd356d0af50393248f17068e35b15"
+"@etalab/edigeo-parser@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@etalab/edigeo-parser/-/edigeo-parser-0.4.0.tgz#b163cb3c97ca185f2d29e627ac12eb4c640672ae"
   dependencies:
     "@turf/boolean-clockwise" "^5.1.5"
     "@turf/boolean-point-in-polygon" "^5.1.5"
