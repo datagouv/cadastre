@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@etalab/edigeo-parser": "^0.4.0",
-    "@turf/turf": "^4.6.1",
+    "@turf/turf": "^5.1.6",
     "JSONStream": "^1.3.1",
     "ascii-progress": "^1.0.5",
     "bluebird": "^3.4.7",
