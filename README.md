@@ -41,13 +41,14 @@ L'import du PCI Vecteur au format DXF doit être fait séparément (facultatif m
 Pour France entière l'opération ne prend que quelques minutes sur une machine moyenne.
 
 ```bash
-cadastre-builder import-pci sources/ dist/
+# EDIGÉO
+cadastre-builder import-pci --bundle edigeo sources-edigeo/ dist/
 
-# DXF
-cadastre-builder import-pci --dxf sources-dxf/ dist/
+# DXF-CC
+cadastre-builder import-pci --bundle dxf-cc sources-dxf-cc/ dist/
 ```
 
-* `sources/` : dossier contenant les archives sources sous la forme `******depXX.zip`
+* `sources-edigeo/` : dossier contenant les archives sources sous la forme `******depXX.zip`
 * `sources-dxf/` : dossier contenant les archives sources DXF sous la forme `******depXX.zip`
 * `dist/` : dossier de travail qui contiendra les données de sortie
 

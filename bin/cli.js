@@ -5,6 +5,7 @@ const program = require('commander')
 const updateNotifier = require('update-notifier')
 
 const pkg = require('../package.json')
+const BUNDLE_TYPES = require('../lib/bundle-types').BUNDLE_TYPES.map(bt => bt.name)
 
 updateNotifier({pkg}).notify()
 
@@ -13,15 +14,19 @@ program
 
 program
   .command('import-pci <archivesDir> <workDir>')
-  .description('Import PCI archives in PCI tree')
-  .option('--dxf', 'DXF mode')
-  .action((archivesDir, workDir, {dxf}) => {
+  .description('Importer un bundle PCI dans l\'arborescence de travail')
+  .option('--bundle [type]', 'Type de bundle source')
+  .action((archivesDir, workDir, {bundle}) => {
     if (!workDir) throw new Error('workDir is required')
     workDir = resolve(workDir)
     if (!archivesDir) throw new Error('archivesDir is required')
     archivesDir = resolve(archivesDir)
+    if (!bundle) throw new Error('--bundle est un paramètre obligatoire')
+    if (!BUNDLE_TYPES.includes(bundle)) {
+      throw new Error('Le type de bundle doit être parmi : ' + BUNDLE_TYPES.join(', '))
+    }
 
-    require('../lib/commands/import-pci')(archivesDir, workDir, dxf).catch(boom)
+    require('../lib/commands/import-pci')(archivesDir, workDir, bundle).catch(boom)
   })
 
 program
