@@ -37,7 +37,7 @@ program
     if (!workDir) throw new Error('workDir is required')
     workDir = resolve(workDir)
 
-    require('../lib/commands/extract-pci')(workDir, {layers}).catch(boom)
+    require('../lib/commands/extract-pci')(workDir, {layers})
   })
 
 program
@@ -66,6 +66,7 @@ program
   .parse(process.argv)
 
 function boom(err) {
+  console.error('Critical error: main process is now shutting down!')
   console.error(err)
   process.exit(1)
 }
