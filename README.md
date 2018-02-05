@@ -65,10 +65,9 @@ Sur une machine dédiée avec 4 coeurs (8 threads) le traitement prend environ 1
 
 ```bash
 cadastre-builder extract-pci dist/
-
-# Mode données super-brutes (non supporté, à usage interne Etalab)
-cadastre-builder extract-pci --raw dist/
 ```
+
+NB : Les objets bruts sont systématiquement produits et placés dans un dossier `raw`.
 
 ### Extraction des données de la BD Réf 2000 et production des fichiers communaux
 
