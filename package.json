@@ -1,6 +1,6 @@
 {
   "name": "@etalab/cadastre",
-  "version": "0.10.0-14",
+  "version": "0.10.0-15",
   "publishConfig": {
     "access": "public"
   },
