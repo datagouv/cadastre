@@ -41,15 +41,20 @@ program
   })
 
 program
-  .command('extract-ems <archivePath> <workDir>')
-  .description('Extraction des données cadastrales Ref 2000 de l\'EMS')
-  .action((archivePath, workDir) => {
-    if (!archivePath) throw new Error('archivePath is required')
-    archivePath = resolve(archivePath)
-    if (!workDir) throw new Error('workDir is required')
-    workDir = resolve(workDir)
+  .command('extract-ems <destPath>')
+  .description('Extraction des données cadastrales de l\'EMS')
+  .option('--rts <path>', 'chemin vers l’archive du Référentiel Topographique Simplifié (obligatoire)')
+  .option('--parcelles <path>', 'chemin vers l’archive contenant les parcelles')
+  .option('--sections <path>', 'chemin vers l’archive contenant les sections')
+  .action((destPath, {rts, parcelles, sections}) => {
+    if (!rts) throw new Error('Le chemin vers l’archive du Référentiel Topographique Simplifié est obligatoire')
+    rts = resolve(rts)
+    if (parcelles) parcelles = resolve(parcelles)
+    if (sections) sections = resolve(sections)
+    if (!destPath) throw new Error('Le chemin vers le répertoire de travail est obligatoire')
+    destPath = resolve(destPath)
 
-    require('../lib/commands/extract-ems')(archivePath, workDir).catch(boom)
+    require('../lib/commands/extract-ems')({rtsPath: rts, parcellesPath: parcelles, sectionsPath: sections}, destPath).catch(boom)
   })
 
 program
