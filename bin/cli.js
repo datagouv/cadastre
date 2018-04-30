@@ -2,12 +2,9 @@
 
 const {resolve} = require('path')
 const program = require('commander')
-const updateNotifier = require('update-notifier')
 
 const pkg = require('../package.json')
 const BUNDLE_TYPES = require('../lib/bundle-types').BUNDLE_TYPES.map(bt => bt.name)
-
-updateNotifier({pkg}).notify()
 
 program
   .version(pkg.version)
