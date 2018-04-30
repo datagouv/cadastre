@@ -49,7 +49,6 @@
     "space": 2,
     "semicolon": false,
     "rules": {
-      "no-use-extend-native/no-use-extend-native": "off",
       "curly": "off",
       "no-await-in-loop": "off"
     }
