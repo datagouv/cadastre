@@ -48,22 +48,18 @@
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@etalab/cog/-/cog-0.1.0.tgz#a54b48600cb4714f46eaba6fc5152104e0465f4a"
 
-"@etalab/edigeo-parser@^0.6.4":
-  version "0.6.5"
-  resolved "https://registry.yarnpkg.com/@etalab/edigeo-parser/-/edigeo-parser-0.6.5.tgz#44728b84ee76cd1d5862528760165abe1b2c8342"
+"@etalab/edigeo-parser@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@etalab/edigeo-parser/-/edigeo-parser-0.7.0.tgz#3164b91983114b746e53e4c97c1121e8a02c95c7"
   dependencies:
-    "@turf/boolean-clockwise" "^5.1.5"
-    "@turf/boolean-point-in-polygon" "^5.1.5"
-    "@turf/helpers" "^5.1.5"
-    "@turf/length" "^5.1.5"
-    "@turf/line-slice" "^5.1.5"
-    "@turf/point-to-line-distance" "5.1.5"
+    "@turf/intersect" "^6.1.2"
+    "@turf/turf" "^5.1.6"
     debug "^3.1.0"
     decompress "^4.2.0"
-    epsg-index "^0.7.0"
-    get-stdin "^5.0.1"
-    is-buffer "^1.1.6"
-    lodash "^4.17.4"
+    epsg-index "^0.13.0"
+    get-stdin "^6.0.0"
+    is-buffer "^2.0.2"
+    lodash "^4.17.10"
     proj4 "^2.4.4"
     split2 "^2.2.0"
 
@@ -503,6 +499,14 @@
     "@turf/truncate" "^5.1.5"
     turf-jsts "*"
 
+"@turf/intersect@^6.1.2":
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/@turf/intersect/-/intersect-6.1.2.tgz#eaf5e8915af601978a8b65851bc73db57cf5919c"
+  dependencies:
+    "@turf/helpers" "6.x"
+    "@turf/invariant" "6.x"
+    martinez-polygon-clipping "*"
+
 "@turf/invariant@5.1.x":
   version "5.1.5"
   resolved "https://registry.yarnpkg.com/@turf/invariant/-/invariant-5.1.5.tgz#f59f4fefa09224b15dce1651f903c868d57a24e1"
@@ -620,7 +624,7 @@
     "@turf/distance" "^5.1.5"
     "@turf/helpers" "^5.1.5"
 
-"@turf/line-slice@5.1.x", "@turf/line-slice@^5.1.5":
+"@turf/line-slice@5.1.x":
   version "5.1.5"
   resolved "https://registry.yarnpkg.com/@turf/line-slice/-/line-slice-5.1.5.tgz#1ecfce1462a378579754cedf4464cde26829f2b5"
   dependencies:
@@ -744,19 +748,6 @@
     "@turf/explode" "^5.1.5"
     "@turf/helpers" "^5.1.5"
     "@turf/nearest-point" "^5.1.5"
-
-"@turf/point-to-line-distance@5.1.5":
-  version "5.1.5"
-  resolved "https://registry.yarnpkg.com/@turf/point-to-line-distance/-/point-to-line-distance-5.1.5.tgz#2fe569dcc98d11116522a3c993be695eac06fa29"
-  dependencies:
-    "@turf/bearing" "^5.1.5"
-    "@turf/distance" "^5.1.5"
-    "@turf/helpers" "^5.1.5"
-    "@turf/invariant" "^5.1.5"
-    "@turf/meta" "^5.1.5"
-    "@turf/projection" "^5.1.5"
-    "@turf/rhumb-bearing" "^5.1.5"
-    "@turf/rhumb-distance" "^5.1.5"
 
 "@turf/point-to-line-distance@5.1.x", "@turf/point-to-line-distance@^5.1.5":
   version "5.1.6"
@@ -1421,6 +1412,10 @@ ava@^0.25.0:
     trim-off-newlines "^1.0.1"
     unique-temp-dir "^1.0.0"
     update-notifier "^2.3.0"
+
+avl@^1.4.1:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/avl/-/avl-1.4.3.tgz#2aabd46efafcc5fc3c7e2fcdee9ead3f37965b10"
 
 aws-sign2@~0.6.0:
   version "0.6.0"
@@ -2380,11 +2375,11 @@ enhance-visitors@^1.0.0:
   dependencies:
     lodash "^4.13.1"
 
-epsg-index@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/epsg-index/-/epsg-index-0.7.0.tgz#12ce267c2ac30ddb3515d73d9feb6872aa9983db"
+epsg-index@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/epsg-index/-/epsg-index-0.13.0.tgz#18c86b9ca6c4acbea586e921d012da0a1fb76dba"
   dependencies:
-    semver "^5.4.1"
+    semver "^5.5.0"
 
 equal-length@^1.0.0:
   version "1.0.1"
@@ -2942,9 +2937,13 @@ get-stdin@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-4.0.1.tgz#b968c6b0a04384324902e8bf1a5df32579a450fe"
 
-get-stdin@^5.0.0, get-stdin@^5.0.1:
+get-stdin@^5.0.0:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-5.0.1.tgz#122e161591e21ff4c52530305693f20e6393a398"
+
+get-stdin@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-6.0.0.tgz#9e09bf712b360ab9225e812048f71fde9c89657b"
 
 get-stream@^2.2.0:
   version "2.3.1"
@@ -3246,9 +3245,13 @@ is-binary-path@^1.0.0:
   dependencies:
     binary-extensions "^1.0.0"
 
-is-buffer@^1.1.5, is-buffer@^1.1.6:
+is-buffer@^1.1.5:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
+
+is-buffer@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-2.0.2.tgz#f83a0c5bc453f6431bf83cc2ceff6cbc9d50a83b"
 
 is-builtin-module@^1.0.0:
   version "1.0.0"
@@ -3668,7 +3671,7 @@ lodash.upperfirst@^4.2.0:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/lodash.upperfirst/-/lodash.upperfirst-4.3.1.tgz#1365edf431480481ef0d1c68957a5ed99d49f7ce"
 
-lodash@^4.0.0, lodash@^4.13.1, lodash@^4.17.4, lodash@^4.3.0:
+lodash@^4.0.0, lodash@^4.13.1, lodash@^4.17.10, lodash@^4.17.4, lodash@^4.3.0:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
@@ -3711,6 +3714,13 @@ make-dir@^1.0.0:
 map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
+
+martinez-polygon-clipping@*:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/martinez-polygon-clipping/-/martinez-polygon-clipping-0.3.3.tgz#a7b9429c9d13cb118a86c97a5e1af5a62aedb6d9"
+  dependencies:
+    avl "^1.4.1"
+    tinyqueue "^1.2.0"
 
 matcher@^1.0.0:
   version "1.1.0"
@@ -4647,7 +4657,7 @@ semver-diff@^2.0.0:
   dependencies:
     semver "^5.0.3"
 
-"semver@2 || 3 || 4 || 5", semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@^5.4.1:
+"semver@2 || 3 || 4 || 5", semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@^5.4.1, semver@^5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
 
@@ -5005,7 +5015,7 @@ timed-out@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/timed-out/-/timed-out-4.0.1.tgz#f32eacac5a175bea25d7fab565ab3ed8741ef56f"
 
-tinyqueue@^1.1.0:
+tinyqueue@^1.1.0, tinyqueue@^1.2.0:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/tinyqueue/-/tinyqueue-1.2.3.tgz#b6a61de23060584da29f82362e45df1ec7353f3d"
 
