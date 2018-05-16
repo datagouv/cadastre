@@ -29,12 +29,11 @@ program
 program
   .command('extract-pci <workDir>')
   .description('extract features from EDIGÉO to GeoJSON')
-  .option('--layers <layers>', 'select layers to extract (default: all)', val => val.split(','))
-  .action((workDir, {layers}) => {
+  .action(workDir => {
     if (!workDir) throw new Error('workDir is required')
     workDir = resolve(workDir)
 
-    require('../lib/commands/extract-pci')(workDir, {layers})
+    require('../lib/commands/extract-pci')(workDir)
   })
 
 program
