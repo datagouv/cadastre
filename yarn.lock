@@ -1117,6 +1117,14 @@
     "@turf/helpers" "^5.1.5"
     turf-jsts "*"
 
+"@turf/union@^6.0.2":
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/@turf/union/-/union-6.0.2.tgz#6821d7842f048cfcfe1ae3b7c36fec73bd7e89cd"
+  dependencies:
+    "@turf/helpers" "6.x"
+    "@turf/invariant" "6.x"
+    martinez-polygon-clipping "*"
+
 "@turf/unkink-polygon@5.1.x":
   version "5.1.5"
   resolved "https://registry.yarnpkg.com/@turf/unkink-polygon/-/unkink-polygon-5.1.5.tgz#7b01847c50fb574ae2579e19e44cba8526d213c3"
