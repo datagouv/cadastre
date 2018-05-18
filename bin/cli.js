@@ -64,6 +64,16 @@ program
   })
 
 program
+  .command('generate-shp <workDir>')
+  .description('Génère les Shapefiles des départements')
+  .action(workDir => {
+    if (!workDir) throw new Error('workDir is required')
+    workDir = resolve(workDir)
+
+    require('../lib/commands/generate-shp')(workDir).catch(boom)
+  })
+
+program
   .parse(process.argv)
 
 function boom(err) {
