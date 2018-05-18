@@ -1117,14 +1117,6 @@
     "@turf/helpers" "^5.1.5"
     turf-jsts "*"
 
-"@turf/union@^6.0.2":
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/@turf/union/-/union-6.0.2.tgz#6821d7842f048cfcfe1ae3b7c36fec73bd7e89cd"
-  dependencies:
-    "@turf/helpers" "6.x"
-    "@turf/invariant" "6.x"
-    martinez-polygon-clipping "*"
-
 "@turf/unkink-polygon@5.1.x":
   version "5.1.5"
   resolved "https://registry.yarnpkg.com/@turf/unkink-polygon/-/unkink-polygon-5.1.5.tgz#7b01847c50fb574ae2579e19e44cba8526d213c3"
@@ -3723,7 +3715,7 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
-martinez-polygon-clipping@*:
+martinez-polygon-clipping@*, martinez-polygon-clipping@^0.3.3:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/martinez-polygon-clipping/-/martinez-polygon-clipping-0.3.3.tgz#a7b9429c9d13cb118a86c97a5e1af5a62aedb6d9"
   dependencies:
