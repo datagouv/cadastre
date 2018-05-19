@@ -33,7 +33,7 @@
     "decompress": "^4.0.0",
     "fs-extra": "^6.0.1",
     "gdal": "^0.9.6",
-    "geojson2shp": "^0.2.0",
+    "geojson2shp": "^0.3.1",
     "glob": "^7.1.2",
     "lodash": "^4.17.4",
     "martinez-polygon-clipping": "^0.3.3",
