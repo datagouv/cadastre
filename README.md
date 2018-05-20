@@ -11,7 +11,7 @@ Scripts permettant de préparer les données cadastrales diffusées par Etalab.
 * [yarn](https://yarnpkg.com/lang/en/docs/install/)
 
 * Pour France entière : un CPU avec au moins 16 coeurs, ou __beaucoup__ de patience
-* Pour France entière : au moins 160 Go d'espace disponible (50 pour les fichiers sources, 50 pour l'espace de travail, 30 pour les fichiers départementaux, 30 pour les fichiers communaux)
+* Pour France entière : au moins 190 Go d'espace disponible (50 pour les fichiers sources, 50 pour l'espace de travail, 30 pour les fichiers départementaux, 30 pour les fichiers communaux, 30 pour les Shapefile départementaux)
 
 ## Installation
 
@@ -26,11 +26,11 @@ Pour produire la totalité des fichiers, il est nécessaire de se procurer :
 * Les archives départementales brutes PCI/EDIGÉO, PCI/TIFF et PCI/DXF mises à disposition par la DGFiP (par convention)
 * Le [Référentiel Topographique Simplifié](https://www.data.gouv.fr/fr/datasets/59d2c07888ee3814dbdaf501/) et les [données cadastrales](https://www.data.gouv.fr/fr/datasets/5a1572c9c751df784fb348fd/) mis à disposition par l'[Eurométropole de Strasbourg](https://www.data.gouv.fr/fr/organizations/strasbourg-eurometropole/)
 
-Pour ne générer que les données GeoJSON, les données PCI/EDIGÉO par feuille telles que [diffusées par Etalab](https://cadastre.data.gouv.fr/data/dgfip-pci-vecteur/latest/edigeo/) remplacent les archives brutes ne pouvant être obtenues que par convention.
+Pour ne générer que les données GeoJSON et Shapefile, les données PCI/EDIGÉO par feuille telles que [diffusées par Etalab](https://cadastre.data.gouv.fr/data/dgfip-pci-vecteur/latest/edigeo/) remplacent les archives brutes ne pouvant être obtenues que par convention.
 
 ## Production des fichiers
 
-Actuellement la production des fichiers se déroule en 4 étapes, via 4 commandes.
+Actuellement la production des fichiers se déroule en 5 étapes, via 5 commandes.
 
 ### Préparation des fichiers PCI
 
@@ -85,14 +85,24 @@ cadastre-builder extract-ems --rts chemin/vers/BD-Ref-2000.zip --parcelles chemi
 
 Les paramètres `--parcelles` et `--sections` sont facultatifs. En leur absence, ce sont les géométries du Référentiel Topographique Simplifié qui sont prises en compte.
 
-### Production des fichiers GeoJSON départementaux
+### Production des fichiers GeoJSON départementaux et nationaux
 
-La commande `merge` permet d'obtenir des fichiers GeoJSON départementaux à partir des fichiers communaux.
+La commande `merge` permet d'obtenir des fichiers GeoJSON départementaux à partir des fichiers communaux, et les fichiers nationaux.
 
 L'opération France entière dure environ 30 minutes.
 
 ```
 cadastre-builder merge dist/
+```
+
+### Production des fichiers Shapefile départementaux et nationaux
+
+La commande `generate-shp` permet d'obtenir des fichiers Shapefile départementaux et nationaux à partir des fichiers GeoJSON.
+
+L'opération France entière dure environ 30 minutes.
+
+```
+cadastre-builder generate-shp dist/
 ```
 
 ## Licence
