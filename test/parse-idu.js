@@ -10,5 +10,6 @@ test('parseParcelleIDU', t => {
 
 test('parseSectionIDU', t => {
   t.deepEqual(parseSectionIDU('123000AC'), {com: '123', prefixe: '000', section: 'AC'})
-  t.throws(() => parseParcelleIDU('123000AC001')) // Too long
+  t.deepEqual(parseSectionIDU('0260000A'), {com: '026', prefixe: '000', section: '0A'})
+  t.throws(() => parseSectionIDU('123000AC001')) // Too long
 })
