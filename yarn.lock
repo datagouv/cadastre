@@ -2941,9 +2941,9 @@ geojson-stream@0.0.1, geojson-stream@^0.0.1:
     JSONStream "^1.0.0"
     through "^2.3.4"
 
-geojson2shp@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/geojson2shp/-/geojson2shp-0.3.1.tgz#3e270d1a7fe94a5e3f53230206f72d815d466f8a"
+geojson2shp@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/geojson2shp/-/geojson2shp-0.3.2.tgz#42b0c5baded388f788fcdbdea920d4fbc23e0d0b"
   dependencies:
     epsg-index "^0.13.0"
     geojson-stream "^0.0.1"
@@ -2952,7 +2952,6 @@ geojson2shp@^0.3.1:
     pump "^3.0.0"
     pumpify "^1.5.1"
     reproject "^1.2.1"
-    shp-write-stream "^2.0.0"
     yazl "^2.4.3"
 
 get-closest@*:
@@ -4368,7 +4367,7 @@ pseudomap@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
 
-pump@^1.0.0, pump@^1.0.2:
+pump@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/pump/-/pump-1.0.3.tgz#5dfe8311c33bbf6fc18261f9f34702c47c08a954"
   dependencies:
@@ -4469,7 +4468,7 @@ read-pkg@^2.0.0:
     normalize-package-data "^2.3.2"
     path-type "^2.0.0"
 
-readable-stream@^2.0.0, readable-stream@^2.0.2, readable-stream@^2.0.4, readable-stream@^2.0.6, readable-stream@^2.1.4, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.2.9, readable-stream@^2.3.5:
+readable-stream@^2.0.0, readable-stream@^2.0.2, readable-stream@^2.0.4, readable-stream@^2.0.6, readable-stream@^2.1.4, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.5:
   version "2.3.6"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
   dependencies:
@@ -4768,14 +4767,6 @@ shelljs@^0.7.5:
     glob "^7.0.0"
     interpret "^1.0.0"
     rechoir "^0.6.2"
-
-shp-write-stream@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/shp-write-stream/-/shp-write-stream-2.0.0.tgz#c6191ecfb886119e1094f509160b5e9ae763ec33"
-  dependencies:
-    debug "^2.6.8"
-    pump "^1.0.2"
-    readable-stream "^2.2.9"
 
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
