@@ -48,17 +48,17 @@
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@etalab/cog/-/cog-0.1.0.tgz#a54b48600cb4714f46eaba6fc5152104e0465f4a"
 
-"@etalab/edigeo-parser@^0.7.2":
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/@etalab/edigeo-parser/-/edigeo-parser-0.7.2.tgz#67cb74f026c24ab087ef1d3f4e725832e49bf5c7"
+"@etalab/edigeo-parser@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@etalab/edigeo-parser/-/edigeo-parser-0.8.0.tgz#9883427153273b7363c72b9ea02ea0e2e254e676"
   dependencies:
-    "@turf/intersect" "^6.1.2"
+    "@turf/intersect" "^6.1.3"
     "@turf/turf" "^5.1.6"
     debug "^3.1.0"
     decompress "^4.2.0"
-    epsg-index "^0.13.0"
+    epsg-index "^0.14.0"
     get-stdin "^6.0.0"
-    is-buffer "^2.0.2"
+    is-buffer "^2.0.3"
     lodash "^4.17.10"
     proj4 "^2.4.4"
     split2 "^2.2.0"
@@ -499,13 +499,13 @@
     "@turf/truncate" "^5.1.5"
     turf-jsts "*"
 
-"@turf/intersect@^6.1.2":
-  version "6.1.2"
-  resolved "https://registry.yarnpkg.com/@turf/intersect/-/intersect-6.1.2.tgz#eaf5e8915af601978a8b65851bc73db57cf5919c"
+"@turf/intersect@^6.1.3":
+  version "6.1.3"
+  resolved "https://registry.yarnpkg.com/@turf/intersect/-/intersect-6.1.3.tgz#c6574a2f00a38df6f81fc08d8103ad5295b7b6bc"
   dependencies:
     "@turf/helpers" "6.x"
     "@turf/invariant" "6.x"
-    martinez-polygon-clipping "*"
+    martinez-polygon-clipping "^0.4.3"
 
 "@turf/invariant@5.1.x":
   version "5.1.5"
@@ -1412,10 +1412,6 @@ ava@^0.25.0:
     trim-off-newlines "^1.0.1"
     unique-temp-dir "^1.0.0"
     update-notifier "^2.3.0"
-
-avl@^1.4.1:
-  version "1.4.3"
-  resolved "https://registry.yarnpkg.com/avl/-/avl-1.4.3.tgz#2aabd46efafcc5fc3c7e2fcdee9ead3f37965b10"
 
 aws-sign2@~0.6.0:
   version "0.6.0"
@@ -2411,6 +2407,12 @@ epsg-index@^0.13.0:
   dependencies:
     semver "^5.5.0"
 
+epsg-index@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/epsg-index/-/epsg-index-0.14.0.tgz#12578afe5e5e6c4c9dc70351a3e7e8e87279640f"
+  dependencies:
+    semver "^5.5.0"
+
 epsg-index@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/epsg-index/-/epsg-index-0.5.0.tgz#beadce9f9e58b720827ae8ef9b323cd842e62251"
@@ -3339,9 +3341,9 @@ is-buffer@^1.1.5:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
 
-is-buffer@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-2.0.2.tgz#f83a0c5bc453f6431bf83cc2ceff6cbc9d50a83b"
+is-buffer@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-2.0.3.tgz#4ecf3fcf749cbd1e472689e109ac66261a25e725"
 
 is-builtin-module@^1.0.0:
   version "1.0.0"
@@ -3821,11 +3823,11 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
-martinez-polygon-clipping@*, martinez-polygon-clipping@^0.3.3:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/martinez-polygon-clipping/-/martinez-polygon-clipping-0.3.3.tgz#a7b9429c9d13cb118a86c97a5e1af5a62aedb6d9"
+martinez-polygon-clipping@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/martinez-polygon-clipping/-/martinez-polygon-clipping-0.4.3.tgz#a3971ddf1da147104b5d0fbbf68f728bb62885c1"
   dependencies:
-    avl "^1.4.1"
+    splaytree "^0.1.4"
     tinyqueue "^1.2.0"
 
 matcher@^1.0.0:
@@ -4929,6 +4931,10 @@ spdx-expression-parse@^3.0.0:
 spdx-license-ids@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.0.tgz#7a7cd28470cc6d3a1cfe6d66886f6bc430d3ac87"
+
+splaytree@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/splaytree/-/splaytree-0.1.4.tgz#fc35475248edcc29d4938c9b67e43c6b7e55a659"
 
 split2@^2.2.0:
   version "2.2.0"
