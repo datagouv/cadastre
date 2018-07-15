@@ -75,6 +75,22 @@ program
   })
 
 program
+  .command('recreate-edigeo-archive <src> <dest>')
+  .description('Recrée une archive source EDIGÉO CC à partir de L93 et vice-versa')
+  .option('--from <bundleType>', 'Type d’archive source : L93 ou CC')
+  .option('--dep <dep>', 'Numéro du département de l’archive source')
+  .action((src, dest, {from, dep}) => {
+    if (!src) throw new Error('src is required')
+    src = resolve(src)
+    if (!dest) throw new Error('dest is required')
+    dest = resolve(dest)
+    if (!from || !['L93', 'CC'].includes(from)) throw new Error('from est obligatoire et doit être choisi parmi L93 ou CC')
+    if (!dep) throw new Error('dep is required')
+
+    require('../lib/commands/recreate-edigeo-archive')(src, dest, from, dep).catch(boom)
+  })
+
+program
   .parse(process.argv)
 
 function boom(err) {
