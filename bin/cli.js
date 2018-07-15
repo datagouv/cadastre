@@ -13,7 +13,8 @@ program
   .command('import-pci <archivesDir> <workDir>')
   .description('Importer un bundle PCI dans l\'arborescence de travail')
   .option('--bundle [type]', 'Type de bundle source')
-  .action((archivesDir, workDir, {bundle}) => {
+  .option('--image', 'Importe les données Image')
+  .action((archivesDir, workDir, {bundle, image}) => {
     if (!workDir) throw new Error('workDir is required')
     workDir = resolve(workDir)
     if (!archivesDir) throw new Error('archivesDir is required')
@@ -23,7 +24,7 @@ program
       throw new Error('Le type de bundle doit être parmi : ' + BUNDLE_TYPES.join(', '))
     }
 
-    require('../lib/commands/import-pci')(archivesDir, workDir, bundle).catch(boom)
+    require('../lib/commands/import-pci')(archivesDir, workDir, bundle, image).catch(boom)
   })
 
 program
