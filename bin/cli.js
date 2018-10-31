@@ -46,8 +46,14 @@ program
   .action((destPath, {rts, parcelles, sections}) => {
     if (!rts) throw new Error('Le chemin vers l’archive du Référentiel Topographique Simplifié est obligatoire')
     rts = resolve(rts)
-    if (parcelles) parcelles = resolve(parcelles)
-    if (sections) sections = resolve(sections)
+    if (!parcelles) {
+      throw new Error('Le chemin vers l’archive contenant les parcelles est obligatoire')
+    }
+    parcelles = resolve(parcelles)
+    if (!sections) {
+      throw new Error('Le chemin vers l’archive contenant les sections est obligatoire')
+    }
+    sections = resolve(sections)
     if (!destPath) throw new Error('Le chemin vers le répertoire de travail est obligatoire')
     destPath = resolve(destPath)
 
