@@ -46,14 +46,15 @@
   },
   "devDependencies": {
     "ava": "^0.25.0",
-    "xo": "^0.18.2"
+    "xo": "^0.24.0"
   },
   "xo": {
     "space": 2,
     "semicolon": false,
     "rules": {
       "curly": "off",
-      "no-await-in-loop": "off"
+      "no-await-in-loop": "off",
+      "promise/prefer-await-to-then": "off"
     }
   },
   "engines": {
