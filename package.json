@@ -33,7 +33,7 @@
     "decompress": "^4.0.0",
     "edigeo-reproject": "^0.2.0",
     "fs-extra": "^6.0.1",
-    "gdal": "^0.9.6",
+    "gdal": "^0.9.8",
     "geojson2shp": "^0.3.2",
     "glob": "^7.1.2",
     "lodash": "^4.17.4",
