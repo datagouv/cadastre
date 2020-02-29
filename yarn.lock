@@ -343,6 +343,24 @@
     proj4 "^2.5.0"
     split2 "^3.1.1"
 
+"@magicdawn/ascii-progress@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@magicdawn/ascii-progress/-/ascii-progress-1.0.8.tgz#c861881b7a7a38848373c633d28b62b9615688dd"
+  integrity sha512-9rcR4rY2VW0FGbj++Y2a0CmLwKlColWreqH0r17tj+wFsvWoYvrmS7ZH2W4jQ3q884mi8fFd3xuypWFBn+BapA==
+  dependencies:
+    "@magicdawn/get-cursor-position" "^1.0.4"
+    ansi.js "0.0.5"
+    end-with "^1.0.2"
+    on-new-line "1.0.0"
+    start-with "^1.0.2"
+
+"@magicdawn/get-cursor-position@^1.0.4":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@magicdawn/get-cursor-position/-/get-cursor-position-1.0.5.tgz#1bd0afa71e6b727d6225eae52349b8334fac2f0f"
+  integrity sha512-Fypt2Unu3IoGQYguShIjvNp2Jr9vlDIzAaK6xHQn3WS4gfZOWvmY9FCV92b7H/xHWOy9kHW1e5m/7rv1h2hwxA==
+  dependencies:
+    nan "^2.14.0"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -1704,16 +1722,6 @@ asap@~2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
   integrity sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
-
-ascii-progress@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/ascii-progress/-/ascii-progress-1.0.5.tgz#9610aa127ab794af561e893613c36c906f78d9ee"
-  dependencies:
-    ansi.js "0.0.5"
-    end-with "^1.0.2"
-    get-cursor-position "1.0.3"
-    on-new-line "1.0.0"
-    start-with "^1.0.2"
 
 assign-symbols@^1.0.0:
   version "1.0.0"
@@ -3489,10 +3497,6 @@ get-closest@*:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/get-closest/-/get-closest-0.0.4.tgz#269ac776d1e6022aa0fd586dd708e8a7d32269af"
 
-get-cursor-position@1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/get-cursor-position/-/get-cursor-position-1.0.3.tgz#0e41d60343b705836a528d69a5e099e2c5108d63"
-
 get-port@^3.1.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/get-port/-/get-port-3.2.0.tgz#dd7ce7de187c06c8bf353796ac71e099f0980ebc"
@@ -4873,6 +4877,11 @@ mute-stream@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
   integrity sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
+
+nan@^2.14.0:
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.0.tgz#7818f722027b2459a86f0295d434d1fc2336c52c"
+  integrity sha512-INOFj37C7k3AfaNTtX8RhsTw7qRy7eLET14cROi9+5HAVbbHuIWUHEauBv5qT4Av2tWasiTY1Jw6puUNqRJXQg==
 
 nan@~2.10.0:
   version "2.10.0"

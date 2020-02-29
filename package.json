@@ -24,9 +24,9 @@
   "dependencies": {
     "@etalab/decoupage-administratif": "^0.7.0",
     "@etalab/edigeo-parser": "^0.9.0",
+    "@magicdawn/ascii-progress": "^1.0.8",
     "@turf/turf": "^5.1.6",
     "JSONStream": "^1.3.5",
-    "ascii-progress": "^1.0.5",
     "bluebird": "^3.7.2",
     "commander": "^2.20.0",
     "debug": "^4.1.1",
