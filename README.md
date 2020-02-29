@@ -7,7 +7,7 @@ Scripts permettant de préparer les données cadastrales diffusées par Etalab.
 
 ## Prérequis
 
-* [Node.js](https://nodejs.org) >= 8
+* [Node.js](https://nodejs.org) 12
 * [yarn](https://yarnpkg.com/lang/en/docs/install/)
 
 * Pour France entière : un CPU avec au moins 16 coeurs, ou __beaucoup__ de patience
