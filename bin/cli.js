@@ -40,26 +40,28 @@ program
 program
   .command('extract-ems <destPath>')
   .description('Extraction des données cadastrales de l\'EMS')
-  .option('--rts <path>', 'chemin vers l’archive du Référentiel Topographique Simplifié (obligatoire)')
-  .option('--parcelles <path>', 'chemin vers l’archive contenant les parcelles')
-  .option('--sections <path>', 'chemin vers l’archive contenant les sections')
-  .action((destPath, {rts, parcelles, sections}) => {
-    if (!rts) throw new Error('Le chemin vers l’archive du Référentiel Topographique Simplifié est obligatoire')
+  .option('--rts <path>', 'chemin vers l’archive du Référentiel Topographique Simplifié')
+  .option('--parcellaire <path>', 'chemin vers l’archive contenant le référentiel parcellaire')
+  .action((destPath, {rts, parcellaire}) => {
+    if (!rts) {
+      throw new Error('Le chemin vers l’archive du Référentiel Topographique Simplifié est obligatoire')
+    }
+
     rts = resolve(rts)
-    if (!parcelles) {
-      throw new Error('Le chemin vers l’archive contenant les parcelles est obligatoire')
+
+    if (!parcellaire) {
+      throw new Error('Le chemin vers l’archive contenant le référentiel parcellaire est obligatoire')
     }
 
-    parcelles = resolve(parcelles)
-    if (!sections) {
-      throw new Error('Le chemin vers l’archive contenant les sections est obligatoire')
+    parcellaire = resolve(parcellaire)
+
+    if (!destPath) {
+      throw new Error('Le chemin vers le répertoire de travail est obligatoire')
     }
 
-    sections = resolve(sections)
-    if (!destPath) throw new Error('Le chemin vers le répertoire de travail est obligatoire')
     destPath = resolve(destPath)
 
-    require('../lib/commands/extract-ems')({rtsPath: rts, parcellesPath: parcelles, sectionsPath: sections}, destPath).catch(boom)
+    require('../lib/commands/extract-ems')({rtsPath: rts, parcellairePath: parcellaire}, destPath).catch(boom)
   })
 
 program
