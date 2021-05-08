@@ -35,7 +35,7 @@
     "gdal-next": "^2.1.0",
     "geojson2shp": "^0.3.2",
     "glob": "^7.1.6",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "mapshaper": "^0.4.123",
     "moment": "^2.27.0",
     "pumpify": "^2.0.1",
