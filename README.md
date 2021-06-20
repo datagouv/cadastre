@@ -80,10 +80,12 @@ Un fichier GeoJSON est produit pour chaque couche résultante et pour chaque com
 L'opération dure moins de 5 minutes.
 
 ```bash
-cadastre-builder extract-ems --rts chemin/vers/BD-Ref-2000.zip --parcelles chemin/vers/parcelles.zip --sections chemin/vers/sections.zip dist/
+cadastre-builder extract-ems --rts chemin/vers/referentiel_topo_simplifie.zip --parcellaire chemin/vers/referentiel_parcellaire.zip dist/
 ```
 
-Les paramètres `--parcelles` et `--sections` sont facultatifs. En leur absence, ce sont les géométries du Référentiel Topographique Simplifié qui sont prises en compte.
+À date, les liens de téléchargement sont les suivants :
+- [référentiel parcellaire](http://www.sig.strasbourg.eu/datastrasbourg/doref/referentiel_parcellaire_shp.zip)
+- [référentiel topographique simplifié](https://sig.strasbourg.eu/datastrasbourg/doref/referentiel_topo_simplifie_shp.zip)
 
 ### Production des fichiers GeoJSON départementaux et nationaux
 
