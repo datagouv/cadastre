@@ -80,6 +80,7 @@ Un fichier GeoJSON est produit pour chaque couche résultante et pour chaque com
 L'opération dure moins de 5 minutes.
 
 ```bash
+# Attention, le dossier de sortie doit être le même que celui de sortie de l'export PCI
 cadastre-builder extract-ems --rts chemin/vers/referentiel_topo_simplifie.zip --parcellaire chemin/vers/referentiel_parcellaire.zip dist/
 ```
 
