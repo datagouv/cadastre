@@ -37,7 +37,7 @@
     "glob": "^7.1.6",
     "lodash": "^4.17.20",
     "mapshaper": "^0.4.123",
-    "moment": "^2.27.0",
+    "moment": "^2.29.4",
     "pumpify": "^2.0.1",
     "worker-farm": "^1.7.0",
     "yazl": "^2.5.1"
