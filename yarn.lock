@@ -48,6 +48,21 @@
     proj4 "^2.5.0"
     split2 "^3.1.1"
 
+"@etalab/edigeo-parser@https://github.com/etalab/edigeo-parser#fix-section-reading-1":
+  version "0.9.0"
+  resolved "https://github.com/etalab/edigeo-parser#8e47ff5b125665c4ebd0740f470055db7ec8abd9"
+  dependencies:
+    "@turf/intersect" "^6.1.3"
+    "@turf/turf" "^5.1.6"
+    debug "^4.1.1"
+    decompress "^4.2.0"
+    epsg-index "^0.28.0"
+    get-stdin "^7.0.0"
+    is-buffer "^2.0.3"
+    lodash "^4.17.15"
+    proj4 "^2.5.0"
+    split2 "^3.1.1"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
