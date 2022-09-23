@@ -1,5 +1,5 @@
-const test = require('ava')
-const {prepareSection} = require('../lib/convert/pci')
+import test from 'ava'
+import {prepareSection} from '../lib/convert/pci.js'
 
 test('prepareSection', t => {
   const feature = {
@@ -8,8 +8,8 @@ test('prepareSection', t => {
       TEX: '0A',
       IDU: '0260000A',
       DATE_OBS: '2011-02-23',
-      DATE_MAJ: '2014-02-28'
-    }
+      DATE_MAJ: '2014-02-28',
+    },
   }
   t.deepEqual(prepareSection(feature, '010260000A01'), {
     type: 'Feature',
@@ -21,7 +21,7 @@ test('prepareSection', t => {
       prefixe: '000',
       code: 'A',
       created: '2011-02-23',
-      updated: '2014-02-28'
-    }
+      updated: '2014-02-28',
+    },
   })
 })
