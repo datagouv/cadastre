@@ -31,7 +31,7 @@
     "commander": "^2.20.0",
     "debug": "^4.1.1",
     "decompress": "^4.2.1",
-    "edigeo-reproject": "^0.2.0",
+    "edigeo-reproject": "https://github.com/etalab/edigeo-reproject#es6-migration",
     "fs-extra": "^9.0.1",
     "gdal-next": "^2.1.0",
     "geojson2shp": "^0.3.2",
