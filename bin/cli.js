@@ -3,9 +3,9 @@ import process from 'node:process'
 import {createRequire} from 'node:module'
 import {resolve} from 'node:path'
 import program from 'commander'
-import pkg from '../package.json'
 
 const require = createRequire(import.meta.url)
+const pkg = require('../package.json')
 
 const BUNDLE_TYPES = require('../lib/bundle-types.js').BUNDLE_TYPES.map(bt => bt.name)
 
