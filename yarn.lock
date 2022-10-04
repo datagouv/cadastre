@@ -54,7 +54,7 @@
 
 "@etalab/edigeo-parser@https://github.com/etalab/edigeo-parser.git#es6-migration":
   version "0.9.0"
-  resolved "https://github.com/etalab/edigeo-parser.git#9bcf74673f14656190eee4837d883e7be7655365"
+  resolved "https://github.com/etalab/edigeo-parser.git#057e68ee9c73824d81dfa77bd91e938106f8eb8b"
   dependencies:
     "@turf/turf" "^6.5.0"
     debug "^4.1.1"
@@ -3587,7 +3587,7 @@ earcut@^2.0.0:
 
 "edigeo-reproject@https://github.com/etalab/edigeo-reproject.git#es6-migration":
   version "1.0.0"
-  resolved "https://github.com/etalab/edigeo-reproject.git#9535eac7deec830cb604c56f77db9412ed163b5a"
+  resolved "https://github.com/etalab/edigeo-reproject.git#d4f84bff61a2495881d559e4dec567c59c49b880"
   dependencies:
     decompress "^4.2.0"
     epsg-index "^0.5.0"
