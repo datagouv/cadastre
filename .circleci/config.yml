@@ -1,0 +1,25 @@
+---
+version: 2
+
+jobs:
+  node:
+    docker:
+      - image: cimg/node:16.17.0
+    steps:
+      - checkout
+      - run:
+          name: Install using yarn
+          command: yarn
+      - run:
+          name: Run lint
+          command: yarn test
+      - run:
+          name: Run tests
+          command: yarn lint
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - node
+
