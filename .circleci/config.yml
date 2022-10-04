@@ -12,10 +12,10 @@ jobs:
           command: yarn install --network-concurrency 1
       - run:
           name: Run lint
-          command: yarn test
+          command: yarn lint
       - run:
           name: Run tests
-          command: yarn lint
+          command: yarn test
 
 workflows:
   version: 2
