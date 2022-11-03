@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@etalab/decoupage-administratif": "^0.8.0",
-    "@etalab/edigeo-parser": "https://github.com/etalab/edigeo-parser.git#es6-migration",
+    "@etalab/edigeo-parser": "https://github.com/etalab/edigeo-parser.git#parser-ease-debug",
     "@turf/turf": "^5.1.6",
     "JSONStream": "^1.3.5",
     "bluebird": "^3.7.2",
