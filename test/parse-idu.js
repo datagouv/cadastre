@@ -1,7 +1,5 @@
-'use strict'
-
-const test = require('ava')
-const {parseParcelleIDU, parseSectionIDU} = require('../lib/convert/pci')
+import test from 'ava'
+import {parseParcelleIDU, parseSectionIDU} from '../lib/convert/pci.js'
 
 test('parseParcelleIDU', t => {
   t.deepEqual(parseParcelleIDU('123000AC0001'), {com: '123', prefixe: '000', section: 'AC', parcelle: '0001'})

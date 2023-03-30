@@ -1,5 +1,5 @@
-const test = require('ava')
-const {FORMATS} = require('../lib/dist/pci')
+import test from 'ava'
+import {FORMATS} from '../lib/dist/pci.js'
 
 test('extractFeuille: edigeo', t => {
   const format = FORMATS.find(f => f.name === 'edigeo')

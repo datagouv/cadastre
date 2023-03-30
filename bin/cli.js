@@ -1,10 +1,13 @@
 #!/usr/bin/env node
+import process from 'node:process'
+import {createRequire} from 'node:module'
+import {resolve} from 'node:path'
+import program from 'commander'
 
-const {resolve} = require('path')
-const program = require('commander')
-
+const require = createRequire(import.meta.url)
 const pkg = require('../package.json')
-const BUNDLE_TYPES = require('../lib/bundle-types').BUNDLE_TYPES.map(bt => bt.name)
+
+const BUNDLE_TYPES = require('../lib/bundle-types.js').BUNDLE_TYPES.map(bt => bt.name)
 
 program
   .version(pkg.version)
@@ -24,7 +27,7 @@ program
       throw new Error('Le type de bundle doit être parmi : ' + BUNDLE_TYPES.join(', '))
     }
 
-    require('../lib/commands/import-pci')(archivesDir, workDir, bundle, image).catch(boom)
+    require('../lib/commands/import-pci.js')(archivesDir, workDir, bundle, image).catch(boom)
   })
 
 program
@@ -34,7 +37,7 @@ program
     if (!workDir) throw new Error('workDir is required')
     workDir = resolve(workDir)
 
-    require('../lib/commands/extract-pci')(workDir)
+    require('../lib/commands/extract-pci.js')(workDir)
   })
 
 program
@@ -61,7 +64,7 @@ program
 
     destPath = resolve(destPath)
 
-    require('../lib/commands/extract-ems')({rtsPath: rts, parcellairePath: parcellaire}, destPath).catch(boom)
+    require('../lib/commands/extract-ems.js')({rtsPath: rts, parcellairePath: parcellaire}, destPath).catch(boom)
   })
 
 program
@@ -71,7 +74,7 @@ program
     if (!workDir) throw new Error('workDir is required')
     workDir = resolve(workDir)
 
-    require('../lib/commands/merge')(workDir).catch(boom)
+    require('../lib/commands/merge.js')(workDir).catch(boom)
   })
 
 program
@@ -81,7 +84,7 @@ program
     if (!workDir) throw new Error('workDir is required')
     workDir = resolve(workDir)
 
-    require('../lib/commands/generate-shp')(workDir).catch(boom)
+    require('../lib/commands/generate-shp.js')(workDir).catch(boom)
   })
 
 program
@@ -97,15 +100,15 @@ program
     if (!from || !['L93', 'CC'].includes(from)) throw new Error('from est obligatoire et doit être choisi parmi L93 ou CC')
     if (!dep) throw new Error('dep is required')
 
-    require('../lib/commands/recreate-edigeo-archive')(src, dest, from, dep).catch(boom)
+    require('../lib/commands/recreate-edigeo-archive.js')(src, dest, from, dep).catch(boom)
   })
 
 program
   .parse(process.argv)
 
-function boom(err) {
+function boom(error) {
   console.error('Critical error: main process is now shutting down!')
-  console.error(err)
+  console.error(error)
   process.exit(1)
 }
 
