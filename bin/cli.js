@@ -78,6 +78,16 @@ program
   })
 
 program
+  .command('merge-epci <workDir>')
+  .description('merge communes into EPCI')
+  .action(workDir => {
+    if (!workDir) throw new Error('workDir is required')
+    workDir = resolve(workDir)
+
+    require('../lib/commands/merge-epci.js')(workDir).catch(boom)
+  })
+
+program
   .command('generate-shp <workDir>')
   .description('Génère les Shapefiles des départements')
   .action(workDir => {
