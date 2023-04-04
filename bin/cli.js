@@ -7,7 +7,9 @@ import program from 'commander'
 const require = createRequire(import.meta.url)
 const pkg = require('../package.json')
 
-const BUNDLE_TYPES = require('../lib/bundle-types.js').BUNDLE_TYPES.map(bt => bt.name)
+import {BUNDLE_TYPES} from '../lib/bundle-types.js'
+const BUNDLE_TYPES_NAMES = BUNDLE_TYPES.map(bt => bt.name)
+
 
 program
   .version(pkg.version)
@@ -23,8 +25,8 @@ program
     if (!archivesDir) throw new Error('archivesDir is required')
     archivesDir = resolve(archivesDir)
     if (!bundle) throw new Error('--bundle est un paramètre obligatoire')
-    if (!BUNDLE_TYPES.includes(bundle)) {
-      throw new Error('Le type de bundle doit être parmi : ' + BUNDLE_TYPES.join(', '))
+    if (!BUNDLE_TYPES_NAMES.includes(bundle)) {
+      throw new Error('Le type de bundle doit être parmi : ' + BUNDLE_TYPES_NAMES.join(', '))
     }
 
     require('../lib/commands/import-pci.js')(archivesDir, workDir, bundle, image).catch(boom)
