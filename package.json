@@ -39,6 +39,7 @@
     "lodash-es": "^4.17.21",
     "mapshaper": "^0.4.123",
     "moment": "^2.27.0",
+    "piscina": "^3.2.0",
     "pumpify": "^2.0.1",
     "worker-farm": "^1.7.0",
     "yazl": "^2.5.1"
