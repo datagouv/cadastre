@@ -11,12 +11,12 @@ import mergeCmd from '../lib/commands/merge.js'
 import generateShpCmd from '../lib/commands/generate-shp.js'
 import recreateEdigeoArchiveCmd from '../lib/commands/recreate-edigeo-archive.js'
 
+import {BUNDLE_TYPES} from '../lib/bundle-types.js'
+
 const require = createRequire(import.meta.url)
 const pkg = require('../package.json')
 
-import {BUNDLE_TYPES} from '../lib/bundle-types.js'
 const BUNDLE_TYPES_NAMES = BUNDLE_TYPES.map(bt => bt.name)
-
 
 program
   .version(pkg.version)
