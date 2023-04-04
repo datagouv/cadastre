@@ -4,6 +4,8 @@ import {createRequire} from 'node:module'
 import {resolve} from 'node:path'
 import program from 'commander'
 
+import mergeEpciCmd from '../lib/commands/merge-epci.js'
+
 const require = createRequire(import.meta.url)
 const pkg = require('../package.json')
 
@@ -85,7 +87,7 @@ program
     if (!workDir) throw new Error('workDir is required')
     workDir = resolve(workDir)
 
-    require('../lib/commands/merge-epci.js')(workDir).catch(boom)
+    mergeEpciCmd(workDir).catch(boom)
   })
 
 program
