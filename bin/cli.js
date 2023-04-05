@@ -8,6 +8,7 @@ import importPciCmd from '../lib/commands/import-pci.js'
 import extractPciCmd from '../lib/commands/extract-pci.js'
 import extractEmsCmd from '../lib/commands/extract-ems.js'
 import mergeCmd from '../lib/commands/merge.js'
+import mergeEpciCmd from '../lib/commands/merge-epci.js'
 import generateShpCmd from '../lib/commands/generate-shp.js'
 import recreateEdigeoArchiveCmd from '../lib/commands/recreate-edigeo-archive.js'
 
@@ -84,6 +85,16 @@ program
     workDir = resolve(workDir)
 
     mergeCmd(workDir).catch(boom)
+  })
+
+program
+  .command('merge-epci <workDir>')
+  .description('merge communes into EPCI')
+  .action(workDir => {
+    if (!workDir) throw new Error('workDir is required')
+    workDir = resolve(workDir)
+
+    mergeEpciCmd(workDir).catch(boom)
   })
 
 program
