@@ -89,12 +89,14 @@ program
 
 program
   .command('merge-epci <workDir>')
+  .option('--from <bundleType>', 'Type d’archive source : etalab ou pci')
   .description('merge communes into EPCI')
-  .action(workDir => {
+  .action((workDir, {from}) => {
     if (!workDir) throw new Error('workDir is required')
     workDir = resolve(workDir)
+    if (!from || !['etalab', 'pci'].includes(from)) throw new Error('from est obligatoire et doit être choisi parmi etalab ou pci')
 
-    mergeEpciCmd(workDir).catch(boom)
+    mergeEpciCmd(workDir, from).catch(boom)
   })
 
 program
