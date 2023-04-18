@@ -4,10 +4,20 @@ import {createRequire} from 'node:module'
 import {resolve} from 'node:path'
 import program from 'commander'
 
+import importPciCmd from '../lib/commands/import-pci.js'
+import extractPciCmd from '../lib/commands/extract-pci.js'
+import extractEmsCmd from '../lib/commands/extract-ems.js'
+import mergeCmd from '../lib/commands/merge.js'
+import mergeEpciCmd from '../lib/commands/merge-epci.js'
+import generateShpCmd from '../lib/commands/generate-shp.js'
+import recreateEdigeoArchiveCmd from '../lib/commands/recreate-edigeo-archive.js'
+
+import {BUNDLE_TYPES} from '../lib/bundle-types.js'
+
 const require = createRequire(import.meta.url)
 const pkg = require('../package.json')
 
-const BUNDLE_TYPES = require('../lib/bundle-types.js').BUNDLE_TYPES.map(bt => bt.name)
+const BUNDLE_TYPES_NAMES = BUNDLE_TYPES.map(bt => bt.name)
 
 program
   .version(pkg.version)
@@ -23,11 +33,11 @@ program
     if (!archivesDir) throw new Error('archivesDir is required')
     archivesDir = resolve(archivesDir)
     if (!bundle) throw new Error('--bundle est un paramètre obligatoire')
-    if (!BUNDLE_TYPES.includes(bundle)) {
-      throw new Error('Le type de bundle doit être parmi : ' + BUNDLE_TYPES.join(', '))
+    if (!BUNDLE_TYPES_NAMES.includes(bundle)) {
+      throw new Error('Le type de bundle doit être parmi : ' + BUNDLE_TYPES_NAMES.join(', '))
     }
 
-    require('../lib/commands/import-pci.js')(archivesDir, workDir, bundle, image).catch(boom)
+    importPciCmd(archivesDir, workDir, bundle, image).catch(boom)
   })
 
 program
@@ -37,7 +47,7 @@ program
     if (!workDir) throw new Error('workDir is required')
     workDir = resolve(workDir)
 
-    require('../lib/commands/extract-pci.js')(workDir)
+    extractPciCmd(workDir)
   })
 
 program
@@ -64,7 +74,7 @@ program
 
     destPath = resolve(destPath)
 
-    require('../lib/commands/extract-ems.js')({rtsPath: rts, parcellairePath: parcellaire}, destPath).catch(boom)
+    extractEmsCmd({rtsPath: rts, parcellairePath: parcellaire}, destPath).catch(boom)
   })
 
 program
@@ -74,7 +84,19 @@ program
     if (!workDir) throw new Error('workDir is required')
     workDir = resolve(workDir)
 
-    require('../lib/commands/merge.js')(workDir).catch(boom)
+    mergeCmd(workDir).catch(boom)
+  })
+
+program
+  .command('merge-epci <workDir>')
+  .option('--from <bundleType>', 'Type d’archive source : etalab ou pci')
+  .description('merge communes into EPCI')
+  .action((workDir, {from}) => {
+    if (!workDir) throw new Error('workDir is required')
+    workDir = resolve(workDir)
+    if (!from || !['etalab', 'pci'].includes(from)) throw new Error('from est obligatoire et doit être choisi parmi etalab ou pci')
+
+    mergeEpciCmd(workDir, from).catch(boom)
   })
 
 program
@@ -84,7 +106,7 @@ program
     if (!workDir) throw new Error('workDir is required')
     workDir = resolve(workDir)
 
-    require('../lib/commands/generate-shp.js')(workDir).catch(boom)
+    generateShpCmd(workDir).catch(boom)
   })
 
 program
@@ -100,7 +122,7 @@ program
     if (!from || !['L93', 'CC'].includes(from)) throw new Error('from est obligatoire et doit être choisi parmi L93 ou CC')
     if (!dep) throw new Error('dep is required')
 
-    require('../lib/commands/recreate-edigeo-archive.js')(src, dest, from, dep).catch(boom)
+    recreateEdigeoArchiveCmd(src, dest, from, dep).catch(boom)
   })
 
 program
