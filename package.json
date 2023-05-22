@@ -41,6 +41,7 @@
     "moment": "^2.27.0",
     "piscina": "^3.2.0",
     "pumpify": "^2.0.1",
+    "worker-farm": "git+https://github.com/ThomasG77/node-worker-farm.git#feature/esm",
     "yazl": "^2.5.1"
   },
   "devDependencies": {
