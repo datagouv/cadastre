@@ -62,12 +62,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@etalab/decoupage-administratif@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@etalab/decoupage-administratif/-/decoupage-administratif-0.8.0.tgz#378a73a00737de5432179394dd28244a93bcbd46"
-  integrity sha512-BNO0BLfPyUvLpGAStdKpZAX80hUHdkhhD3GMu7HcwERqmshl96uIU0v3/1LlL23DiMs9qRyVIRnfDDIAfHaG/w==
-  dependencies:
-    lodash "^4.17.15"
+"@etalab/decoupage-administratif@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@etalab/decoupage-administratif/-/decoupage-administratif-3.1.1.tgz#bb8388c57526ba45a39a7b6e7da8d1d496278e7c"
+  integrity sha512-/1yqSlo6Xerdz1MN+rh57hDWcAam18gwSK5u4wFjT1glRUiN/o1A4IQe6pvB9JqGvHv6WbF5X7WyE+yxeMqLig==
 
 "@etalab/edigeo-parser@^1.0.0":
   version "1.0.0"
