@@ -23,7 +23,7 @@
     "test": "ava"
   },
   "dependencies": {
-    "@etalab/decoupage-administratif": "^3.1.1",
+    "@etalab/decoupage-administratif": "^4.0.0",
     "@etalab/edigeo-parser": "^1.0.0",
     "@etalab/edigeo-reproject": "^1.0.1",
     "@turf/turf": "^5.1.6",
