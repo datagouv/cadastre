@@ -16,6 +16,7 @@ Scripts permettant de préparer les données cadastrales diffusées par Etalab.
 ## Installation
 
 ```bash
+# You may need to use npm_config_build_from_source=true if you have issues about ABI
 yarn global add @etalab/cadastre
 ```
 
