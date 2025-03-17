@@ -43,11 +43,12 @@ program
 program
   .command('extract-pci <workDir>')
   .description('extract features from EDIGÉO to GeoJSON')
-  .action(workDir => {
+  .option('--departements <departements>', 'codes départements séparés par des virgules, pour limiter le traitement à un sous-ensemble')
+  .action((workDir, {departements}) => {
     if (!workDir) throw new Error('workDir is required')
     workDir = resolve(workDir)
 
-    extractPciCmd(workDir)
+    extractPciCmd(workDir, departements)
   })
 
 program
